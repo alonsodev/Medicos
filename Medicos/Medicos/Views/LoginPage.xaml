@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicos.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Iniciar Sesión">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Login}">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <StackLayout Margin="0,0,0,25">
+                    <Image Source="logo.png" HeightRequest="50"></Image>
+                </StackLayout>
+                <StackLayout Margin="0,0,0,25">
+                    <Label FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" Text="Bienvenido"></Label>
+                </StackLayout>
+                <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
+                <Grid Margin="0,25,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalTextAlignment="Center" Text="Usuario" Grid.Row="0" Grid.Column="0"></Label>
+                    <Entry Placeholder="Ingrear tu usuario..." Grid.Row="0" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Contraseña" Grid.Row="1" Grid.Column="0"></Label>
+                    <Entry Placeholder="Ingrear tu contraseña..." Grid.Row="1" Grid.Column="1"></Entry>
+                </Grid>
+                <StackLayout Margin="40,0">
+                    <Button Command="{Binding LoginCommand}" Text="Ingresar" BorderRadius="23"></Button>
+                </StackLayout>
+                <Button Command="{Binding ReportarPacienteCommand}" Text="Reportar Paciente" BorderRadius="23"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

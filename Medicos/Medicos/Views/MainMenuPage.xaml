@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicos.Views.MainMenuPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Menú Principal">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding MainMenu}">
+            <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label Text="Reportar Paciente"></Label>
+                <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label Text="Ver Información Paciente"></Label>
+                <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label Text="Beneficios y Encuesta del Prog"></Label>
+                <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label Text="Cerrar Sesión"></Label>
+                <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

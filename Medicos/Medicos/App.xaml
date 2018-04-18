@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:Medicos.Infrastructure"
+             x:Class="Medicos.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <infra:InstanceLocator x:Key="Locator" />
+            <Style TargetType="StackLayout" Class="MainSL">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Padding" Value="10,20,10,20" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
