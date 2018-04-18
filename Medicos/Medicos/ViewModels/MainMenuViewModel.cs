@@ -26,6 +26,7 @@ namespace Medicos.ViewModels
 
         private async void ReportarPaciente()
         {
+            MainViewModel.GetInstance().ReportarPaciente = new ReportarPacienteViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new ReportarPacientePage());
         }
     }

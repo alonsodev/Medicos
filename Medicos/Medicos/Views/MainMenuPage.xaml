@@ -8,6 +8,9 @@
         <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding MainMenu}">
             <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ReportarPacienteCommand}"/>
+                </StackLayout.GestureRecognizers>
                 <Label Text="Reportar Paciente"></Label>
                 <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
             </StackLayout>

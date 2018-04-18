@@ -28,6 +28,7 @@ namespace Medicos.ViewModels
 
         private async void Login()
         {
+            MainViewModel.GetInstance().MainMenu = new MainMenuViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new MainMenuPage());
         }
 

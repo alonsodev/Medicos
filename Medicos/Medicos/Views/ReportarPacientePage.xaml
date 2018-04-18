@@ -7,15 +7,9 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ReportarPaciente}">
             <Label Text="Reportar Paciente" FontSize="20"></Label>
-            <Grid Margin="0,25,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="2*" />
-                </Grid.ColumnDefinitions>
-                <Label VerticalTextAlignment="Center" Text="Nombre y Apellidos" Grid.Row="0" Grid.Column="0" />
-                <Entry Placeholder="Ingrear tu nombre y apellido..." Grid.Row="0" Grid.Column="1"></Entry>
-                <Label VerticalTextAlignment="Center" Text="Tipo Documento" Grid.Row="1" Grid.Column="0"></Label>
-                <Picker x:Name="picker" Title="Seleccionar un Tipo de Doc." Grid.Row="1" Grid.Column="1">
+            <StackLayout Margin="0,0,25,0">
+                <Entry Placeholder="Nombres y Apellidos"></Entry>
+                <Picker x:Name="picker" Title="Seleccionar un Tipo de Doc.">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Cédula</x:String>
@@ -24,14 +18,10 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                <Label VerticalTextAlignment="Center" Text="Número de Identificación" Grid.Row="2" Grid.Column="0"></Label>
-                <Entry Placeholder="" Grid.Row="2" Grid.Column="1"></Entry>
-                <Label VerticalTextAlignment="Center" Text="Teléfono" Grid.Row="3" Grid.Column="0"></Label>
-                <Entry Placeholder="" Grid.Row="3" Grid.Column="1"></Entry>
-                <Label VerticalTextAlignment="Center" Text="Teléfono Celular" Grid.Row="4" Grid.Column="0"></Label>
-                <Entry Placeholder="" Grid.Row="4" Grid.Column="1"></Entry>
-                <Label VerticalTextAlignment="Center" Text="Medicamento" Grid.Row="5" Grid.Column="0"></Label>
-                <Picker x:Name="picker1" Title="Seleccionar un Medicamento" Grid.Row="5" Grid.Column="1">
+                <Entry Placeholder="Número de Identificación"></Entry>
+                <Entry Placeholder="Teléfono"></Entry>
+                <Entry Placeholder="Teléfono Celular"></Entry>
+                <Picker x:Name="picker1" Title="Seleccionar un Medicamento">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Medicamento 1</x:String>
@@ -40,8 +30,7 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                <Label VerticalTextAlignment="Center" Text="EPS" Grid.Row="6" Grid.Column="0"></Label>
-                <Picker x:Name="picker2" Title="Seleccionar una EPS." Grid.Row="6" Grid.Column="1">
+                <Picker x:Name="picker2" Title="Seleccionar una EPS">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>EPS 1</x:String>
@@ -50,17 +39,17 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-            </Grid>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="Nueva Fotografía" BorderRadius="23"></Button>
-                <Button Text="Abrir Galería" BorderRadius="23"></Button>
-            </StackLayout>
-            <Label Text="Fotos Guardadas"></Label>
-            <StackLayout Margin="40,0">
-                <Button Text="Diligenciar consentimiento informado" BorderRadius="23"></Button>
-            </StackLayout>
-            <StackLayout Margin="40,0">
-                <Button Text="Reportar Paciente" BorderRadius="23"></Button>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button Text="Nueva Fotografía" BorderRadius="23"></Button>
+                    <Button Text="Abrir Galería" BorderRadius="23"></Button>
+                </StackLayout>
+                <Label Text="Fotos Guardadas"></Label>
+                <StackLayout Margin="40,0">
+                    <Button Text="Diligenciar consentimiento informado" BorderRadius="23"></Button>
+                </StackLayout>
+                <StackLayout Margin="40,0">
+                    <Button Text="Reportar Paciente" BorderRadius="23"></Button>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

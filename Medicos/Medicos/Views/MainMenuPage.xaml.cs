@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+
 
 namespace Medicos.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MainMenuPage : ContentPage
+    using Xamarin.Forms;
+    using Xamarin.Forms.Xaml;
+    public partial class MainMenuPage : ContentPage
 	{
 		public MainMenuPage ()
 		{

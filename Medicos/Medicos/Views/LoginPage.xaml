@@ -14,16 +14,10 @@
                     <Label FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" Text="Bienvenido"></Label>
                 </StackLayout>
                 <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
-                <Grid Margin="0,25,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
-                    </Grid.ColumnDefinitions>
-                    <Label VerticalTextAlignment="Center" Text="Usuario" Grid.Row="0" Grid.Column="0"></Label>
-                    <Entry Placeholder="Ingrear tu usuario..." Grid.Row="0" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Contraseña" Grid.Row="1" Grid.Column="0"></Label>
-                    <Entry Placeholder="Ingrear tu contraseña..." Grid.Row="1" Grid.Column="1"></Entry>
-                </Grid>
+                <StackLayout Margin="0,0,25,0">
+                    <Entry Placeholder="Ingresa tu usuario..."></Entry>
+                    <Entry Placeholder="Ingresa tu contraseña..."></Entry>
+                </StackLayout>
                 <StackLayout Margin="40,0">
                     <Button Command="{Binding LoginCommand}" Text="Ingresar" BorderRadius="23"></Button>
                 </StackLayout>
