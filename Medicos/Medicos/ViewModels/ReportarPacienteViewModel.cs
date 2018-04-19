@@ -13,5 +13,22 @@ namespace Medicos.ViewModels
         public ReportarPacienteViewModel()
         {
         }
+
+        #region Commands
+        public ICommand ConsentimientoInformadoCommand
+        {
+            get
+            {
+                return new RelayCommand(ConsentimientoInformado);
+            }
+        }
+
+        private async void ConsentimientoInformado()
+        {
+            MainViewModel.GetInstance().ConsentimientoInformado = new ConsentimientoInformadoViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new ConsentimientoInformadoPage());
+        }
+
+        #endregion
     }
 }

@@ -1,12 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Medicos.Views.ConsentimientoInformadoFirmaPage">
+             xmlns:sig="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="Medicos.Views.ConsentimientoInformadoFirmaPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Consentimiento Informado">
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ConsentimientoInformadoFirma}">
+            <Label Text="Consentimiento Informado" FontSize="20"></Label>
+            <StackLayout Margin="0,0,25,0">
+                <TableView Intent="Form" HeightRequest="50"
+                   Margin="10, 0">
+                    <TableRoot>
+                        <TableSection>
+                            <SwitchCell Text="Firma del Paciente" />
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                <TableView Intent="Form" HeightRequest="50"
+                   Margin="10, 0">
+                    <TableRoot>
+                        <TableSection>
+                            <SwitchCell Text="Firma del Representante Legal/Familiar" />
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                <sig:SignaturePadView
+                    VerticalOptions="FillAndExpand"
+                    HeightRequest="250"
+                    x:Name="signature"
+                    StrokeWidth="3"
+                    StrokeColor="Black" />
+                <StackLayout Margin="40,0">
+                    <Button Text="Guardar Consentimiento Informado" BorderRadius="23"></Button>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
+    
 </ContentPage>

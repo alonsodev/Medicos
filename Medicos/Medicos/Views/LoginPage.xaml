@@ -5,24 +5,25 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Iniciar Sesión">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Login}">
-            <StackLayout VerticalOptions="CenterAndExpand">
-                <StackLayout Margin="0,0,0,25">
-                    <Image Source="logo.png" HeightRequest="50"></Image>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Login}">
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <StackLayout Margin="0,0,0,25">
+                        <Image Source="logo.png" HeightRequest="50"></Image>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,25">
+                        <Label FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" Text="Bienvenido"></Label>
+                    </StackLayout>
+                    <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
+                    <StackLayout Margin="20,25">
+                        <Entry Placeholder="Ingresa tu usuario..."></Entry>
+                        <Entry Placeholder="Ingresa tu contraseña..."></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="50,25">
+                        <Button Command="{Binding LoginCommand}" Text="Ingresar" BorderRadius="23"></Button>
+                    </StackLayout>
                 </StackLayout>
-                <StackLayout Margin="0,0,0,25">
-                    <Label FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" Text="Bienvenido"></Label>
-                </StackLayout>
-                <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
-                <StackLayout Margin="0,0,25,0">
-                    <Entry Placeholder="Ingresa tu usuario..."></Entry>
-                    <Entry Placeholder="Ingresa tu contraseña..."></Entry>
-                </StackLayout>
-                <StackLayout Margin="40,0">
-                    <Button Command="{Binding LoginCommand}" Text="Ingresar" BorderRadius="23"></Button>
-                </StackLayout>
-                <Button Command="{Binding ReportarPacienteCommand}" Text="Reportar Paciente" BorderRadius="23"></Button>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -24,6 +24,34 @@ namespace Medicos.ViewModels
             }
         }
 
+        public ICommand VerPacienteCommand
+        {
+            get
+            {
+                return new RelayCommand(VerPaciente);
+            }
+        }
+
+        public ICommand BeneficiosCommand
+        {
+            get
+            {
+                return new RelayCommand(Beneficios);
+            }
+        }
+
+        private async void Beneficios()
+        {
+            MainViewModel.GetInstance().Beneficios = new BeneficiosViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new BeneficiosPage());
+        }
+
+        private async void VerPaciente()
+        {
+            MainViewModel.GetInstance().VerPacienteMenu = new VerPacienteMenuViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new VerPacienteMenuPage());
+        }
+
         private async void ReportarPaciente()
         {
             MainViewModel.GetInstance().ReportarPaciente = new ReportarPacienteViewModel();

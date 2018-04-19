@@ -4,53 +4,57 @@
              x:Class="Medicos.Views.ReportarPacientePage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Reportar Paciente">
-    <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ReportarPaciente}">
-            <Label Text="Reportar Paciente" FontSize="20"></Label>
-            <StackLayout Margin="0,0,25,0">
-                <Entry Placeholder="Nombres y Apellidos"></Entry>
-                <Picker x:Name="picker" Title="Seleccionar un Tipo de Doc.">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Cédula</x:String>
-                            <x:String>Carnet de Extranjería</x:String>
-                            <x:String>Pasaporte</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-                <Entry Placeholder="Número de Identificación"></Entry>
-                <Entry Placeholder="Teléfono"></Entry>
-                <Entry Placeholder="Teléfono Celular"></Entry>
-                <Picker x:Name="picker1" Title="Seleccionar un Medicamento">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Medicamento 1</x:String>
-                            <x:String>Medicamento 2</x:String>
-                            <x:String>Medicamento 3</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-                <Picker x:Name="picker2" Title="Seleccionar una EPS">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>EPS 1</x:String>
-                            <x:String>EPS 2</x:String>
-                            <x:String>EPS 3</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Button Text="Nueva Fotografía" BorderRadius="23"></Button>
-                    <Button Text="Abrir Galería" BorderRadius="23"></Button>
+  
+        <ContentPage.Content>
+            <ScrollView>
+                <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ReportarPaciente}">
+                    <Label Text="Reportar Paciente" FontSize="20"></Label>
+                    <StackLayout Margin="0,0,25,0">
+                        <Entry Placeholder="Nombres y Apellidos"></Entry>
+                        <Picker x:Name="picker" Title="Seleccionar un Tipo de Doc.">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Cédula</x:String>
+                                    <x:String>Carnet de Extranjería</x:String>
+                                    <x:String>Pasaporte</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Entry Placeholder="Número de Identificación"></Entry>
+                        <Entry Placeholder="Teléfono"></Entry>
+                        <Entry Placeholder="Teléfono Celular"></Entry>
+                        <Picker x:Name="picker1" Title="Seleccionar un Medicamento">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Medicamento 1</x:String>
+                                    <x:String>Medicamento 2</x:String>
+                                    <x:String>Medicamento 3</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Picker x:Name="picker2" Title="Seleccionar una EPS">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>EPS 1</x:String>
+                                    <x:String>EPS 2</x:String>
+                                    <x:String>EPS 3</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button Text="Nueva Fotografía" BorderRadius="23"></Button>
+                            <Button Text="Abrir Galería" BorderRadius="23"></Button>
+                        </StackLayout>
+                        
+                        <StackLayout Margin="40,0">
+                            <Button Text="Diligenciar consentimiento informado" Command="{Binding ConsentimientoInformadoCommand}" BorderRadius="23"></Button>
+                        </StackLayout>
+                        <StackLayout Margin="40,0">
+                            <Button Text="Reportar Paciente" BorderRadius="23"></Button>
+                        </StackLayout>
+                    </StackLayout>
                 </StackLayout>
-                <Label Text="Fotos Guardadas"></Label>
-                <StackLayout Margin="40,0">
-                    <Button Text="Diligenciar consentimiento informado" BorderRadius="23"></Button>
-                </StackLayout>
-                <StackLayout Margin="40,0">
-                    <Button Text="Reportar Paciente" BorderRadius="23"></Button>
-                </StackLayout>
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
+  
 </ContentPage>

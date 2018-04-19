@@ -10,13 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Medicos.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ConsentimientoInformadoPage : ContentPage
+	public partial class InformeConsolidadoPage : ContentPage
 	{
-		public ConsentimientoInformadoPage ()
+		public InformeConsolidadoPage ()
 		{
 			InitializeComponent ();
 		}
-
-        
-    }
+	}
 }

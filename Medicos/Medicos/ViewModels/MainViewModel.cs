@@ -24,6 +24,54 @@ namespace Medicos.ViewModels
             get;
             set;
         }
+
+        public ConsentimientoInformadoViewModel ConsentimientoInformado
+        {
+            get;
+            set;
+        }
+
+        public ConsentimientoInformadoFirmaViewModel ConsentimientoInformadoFirma
+        {
+            get;
+            set;
+        }
+
+        public VerPacienteMenuViewModel VerPacienteMenu
+        {
+            get;
+            set;
+        }
+
+        public BuscarPacienteViewModel BuscarPaciente
+        {
+            get;
+            set;
+        }
+        public InformeConsolidadoViewModel InformeConsolidado
+        {
+            get;
+            set;
+        }
+
+        public InformacionPacienteViewModel InformacionPaciente
+        {
+            get;
+            set;
+        }
+
+        public BeneficiosViewModel Beneficios
+        {
+            get;
+            set;
+        }
+
+        public EncuestaPaso1ViewModel EncuestaPaso1
+        {
+            get;
+            set;
+        }
+        
         #endregion
 
         #region Constructors
@@ -32,6 +80,8 @@ namespace Medicos.ViewModels
             instance = this;
             this.Login = new LoginViewModel();
         }
+
+
         #endregion
 
         #region Singleton

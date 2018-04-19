@@ -10,5 +10,27 @@ namespace Medicos.ViewModels
     using Views;
     public class ConsentimientoInformadoViewModel
     {
+        public ConsentimientoInformadoViewModel()
+        {
+        }
+
+        #region Commands
+        public ICommand SiguienteCommand
+        {
+            get
+            {
+                return new RelayCommand(Siguiente);
+            }
+        }
+
+        private async void Siguiente()
+        {
+            MainViewModel.GetInstance().ConsentimientoInformadoFirma = new ConsentimientoInformadoFirmaViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new ConsentimientoInformadoFirmaPage());
+        }
+
+        #endregion
     }
+
+
 }

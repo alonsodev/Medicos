@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicos.Views.VerPacienteMenuPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Caminando Juntos">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding VerPacienteMenu}">
+            <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
+
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BuscarPacienteCommand}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="add_user.png" WidthRequest="24"></Image>
+                <Label Text="Buscar Paciente"></Label>
+                <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding VerInformeConsolidadoCommand}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="ver_info_paciente.png" WidthRequest="24"></Image>
+                <Label Text="Ver Informe Consolidado"></Label>
+                <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

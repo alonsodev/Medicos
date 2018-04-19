@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicos.Views.InformacionPacientePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Caminando Juntos">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding InformacionPaciente}">
+                <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
+                <Grid Margin="0,25,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalTextAlignment="Center" Text="Nombre" Grid.Row="0" Grid.Column="0" />
+                    <Entry Grid.Row="0" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="EPS" Grid.Row="1" Grid.Column="0" />
+                    <Entry Grid.Row="1" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Medicamento" Grid.Row="2" Grid.Column="0" />
+                    <Entry Grid.Row="2" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Enfermera PSP" Grid.Row="3" Grid.Column="0" />
+                    <Entry Grid.Row="3" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Ciudad" Grid.Row="4" Grid.Column="0" />
+                    <Entry Grid.Row="4" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Fecha Ingreso PSP" Grid.Row="5" Grid.Column="0" />
+                    <Entry Grid.Row="5" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Fecha Educación Trámites Admin" Grid.Row="6" Grid.Column="0" />
+                    <Entry Grid.Row="6" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Fecha Entrega Muestra Med" Grid.Row="7" Grid.Column="0" />
+                    <Entry Grid.Row="7" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Telefónico" Grid.Row="8" Grid.Column="0" />
+                    <Entry Grid.Row="8" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Presencial" Grid.Row="9" Grid.Column="0" />
+                    <Entry Grid.Row="9" Grid.Column="1"></Entry>
+                    <Label VerticalTextAlignment="Center" Text="Fecha Inicio Tratamiento" Grid.Row="10" Grid.Column="0" />
+                    <Entry Grid.Row="10" Grid.Column="1"></Entry>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

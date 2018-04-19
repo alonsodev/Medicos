@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicos.Views.BeneficiosPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Caminando Juntos">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Beneficios}">
+                <Label FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
+                <Label FontSize="Medium" HorizontalOptions="StartAndExpand" Text="Beneficios del Programa"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Acompañamiento presencial y/o telefónico durante el tratamiento"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Asesoramiento en trámites para la obtención del medicamento"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Soporte telefónico dirigido por profesionales de la salud"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Entrega de material informativo"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Educación en el manejo de la patología y el medicamento"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Kit de inicio de tratamiento"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Actividades lúdicas y grupales"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Apoyo de servicio de transporte"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Servicio de aplicación domiciliaria de medicamento"></Label>
+                <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Consulta y kit dermatológico"></Label>
+                <StackLayout Margin="40,0">
+                    <Button Text="Dilengenciar Encuesta" Command="{Binding EncuestaPaso1Command}" BorderRadius="23"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

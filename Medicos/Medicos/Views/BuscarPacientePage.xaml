@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicos.Views.BuscarPacientePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Caminando Juntos">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding BuscarPaciente}">
+            <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
+            <Label FontSize="Medium" HorizontalOptions="StartAndExpand" Text="Por favor ingrese el nombre o número de cédula a Buscar"></Label>
+            <Entry Placeholder="Buscar"></Entry>
+            <Button Text="Buscar" BorderRadius="23" HorizontalOptions="Start"></Button>
+            <Button Text="Información Paciente" Command="{Binding InformacionPacienteCommand}" BorderRadius="23" HorizontalOptions="Start"></Button>
+            <Label Text="Resultados" FontAttributes="Bold" FontSize="14"></Label>
+            <ListView  x:Name="listView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+						Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Cédula"/>
+                                    <Label Text="Nombre" />
+                                    <Label Text="Medicamento"
+								HorizontalOptions="EndAndExpand" />
+                                    <Button Text="..." BorderRadius="23"></Button>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

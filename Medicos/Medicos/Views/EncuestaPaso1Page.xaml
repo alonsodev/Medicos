@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicos.Views.EncuestaPaso1Page"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Caminando Juntos">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding EncuestaPaso1}">
+                <Label FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
+                <Label FontSize="Medium" HorizontalOptions="StartAndExpand" Text="A través de esta encuesta queremos conocer su nivel de satisfacción con el programa Caminando Juntos. Sus respuestas son muy importantes para nosotros."></Label>
+                <Label FontSize="Small" HorizontalOptions="StartAndExpand" Text="De acuerdo con una escala de 1 a 10, donde 1 es el menos importante y 10 el más importante, por favor ordene los iguientes beneficios del programa Caminando Juntos de acuerdo con la importancia que usted considera que tiene para los pacientes."></Label>
+                <Grid Margin="0,25,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalTextAlignment="Center" Text="Acompañamiento presencial y/o telefónico durante el tratamiento" Grid.Row="0" Grid.Column="0" />
+                    <Picker x:Name="picker1" Title="" Grid.Row="0" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                                <x:String>10</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label VerticalTextAlignment="Center" Text="Asesoramiento en trámites para la obtención del medicamento" Grid.Row="1" Grid.Column="0" />
+                    <Picker x:Name="picker2" Title="" Grid.Row="1" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                                <x:String>10</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label VerticalTextAlignment="Center" Text="Soporte telefónico dirigido por profesionales de la salud" Grid.Row="2" Grid.Column="0" />
+                    <Picker x:Name="picker3" Title="" Grid.Row="2" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                                <x:String>10</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label VerticalTextAlignment="Center" Text="Entrega de material informativo" Grid.Row="3" Grid.Column="0" />
+                    <Picker x:Name="picker4" Title="" Grid.Row="3" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                                <x:String>10</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label VerticalTextAlignment="Center" Text="Educación en el manejo de la patología y el medicamento Kit de inicio de tratamiento" Grid.Row="4" Grid.Column="0" />
+                    <Picker x:Name="picker5" Title="" Grid.Row="4" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                                <x:String>10</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label VerticalTextAlignment="Center" Text="Actividades lúdicas y grupales" Grid.Row="5" Grid.Column="0" />
+                    <Picker x:Name="picker6" Title="" Grid.Row="5" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                                <x:String>10</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label VerticalTextAlignment="Center" Text="Apoyo de servicio de transporte (Aplica para Fluvestrant, Acetato de Goserelina y Gefitinib" Grid.Row="6" Grid.Column="0" />
+                    <Picker x:Name="picker7" Title="" Grid.Row="6" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                                <x:String>10</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Grid>
+                <StackLayout Margin="40,0">
+                    <Button Text="Siguiente Página" BorderRadius="23"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
