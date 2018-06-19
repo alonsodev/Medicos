@@ -15,7 +15,7 @@
                 <Label Text="Reportar Paciente"></Label>
                 <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
             </StackLayout>
-            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20">
+            <StackLayout HorizontalOptions="Center" IsVisible="{Binding IsVisible, Mode=TwoWay}" Orientation="Horizontal" Margin="0,20">
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding VerPacienteCommand}"/>
                 </StackLayout.GestureRecognizers>
@@ -23,19 +23,37 @@
                 <Label Text="Ver Información Paciente"></Label>
                 <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
             </StackLayout>
-            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20">
+            <StackLayout HorizontalOptions="Center"  Orientation="Horizontal" Margin="0,20">
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding BeneficiosCommand}"/>
                 </StackLayout.GestureRecognizers>
                 <Image Source="gift.png" WidthRequest="24"></Image>
-                <Label Text="Beneficios y Encuesta del Prog"></Label>
+                <Label Text="Beneficios del Programa"></Label>
+                <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" IsVisible="{Binding IsVisible, Mode=TwoWay}" Orientation="Horizontal" Margin="0,20">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NotificacionesCommand}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="notificaciones.png" WidthRequest="24"></Image>
+                <Label Text="Notificaciones"></Label>
                 <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
             </StackLayout>
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignoutCommand}"/>
+                </StackLayout.GestureRecognizers>
                 <Image Source="sign_out_option.png" WidthRequest="24"></Image>
                 <Label Text="Cerrar Sesión"></Label>
                 <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
             </StackLayout>
+
+            <ActivityIndicator      
+                        IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+            </ActivityIndicator>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

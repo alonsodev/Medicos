@@ -5,55 +5,63 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Reportar Paciente">
   
-        <ContentPage.Content>
-            <ScrollView>
-                <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ReportarPaciente}">
-                    <Label Text="Reportar Paciente" FontSize="20"></Label>
-                    <StackLayout Margin="0,0,25,0">
-                        <Entry Placeholder="Nombres y Apellidos"></Entry>
-                        <Picker x:Name="picker" Title="Seleccionar un Tipo de Doc.">
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Cédula</x:String>
-                                    <x:String>Carnet de Extranjería</x:String>
-                                    <x:String>Pasaporte</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
-                        <Entry Placeholder="Número de Identificación"></Entry>
-                        <Entry Placeholder="Teléfono"></Entry>
-                        <Entry Placeholder="Teléfono Celular"></Entry>
-                        <Picker x:Name="picker1" Title="Seleccionar un Medicamento">
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Medicamento 1</x:String>
-                                    <x:String>Medicamento 2</x:String>
-                                    <x:String>Medicamento 3</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
-                        <Picker x:Name="picker2" Title="Seleccionar una EPS">
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>EPS 1</x:String>
-                                    <x:String>EPS 2</x:String>
-                                    <x:String>EPS 3</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                            <Button Text="Nueva Fotografía" BorderRadius="23"></Button>
-                            <Button Text="Abrir Galería" BorderRadius="23"></Button>
-                        </StackLayout>
-                        
-                        <StackLayout Margin="40,0">
-                            <Button Text="Diligenciar consentimiento informado" Command="{Binding ConsentimientoInformadoCommand}" BorderRadius="23"></Button>
-                        </StackLayout>
-                        <StackLayout Margin="40,0">
-                            <Button Text="Reportar Paciente" BorderRadius="23"></Button>
-                        </StackLayout>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ReportarPaciente}">
+                <Label Text="Reportar Paciente" FontSize="20"></Label>
+                <StackLayout Margin="5,0,5,0">
+                    <!--<Entry Text="{Binding Nombres, Mode=TwoWay}" Placeholder="Nombres"></Entry>
+                    <Entry Text="{Binding Apellidos, Mode=TwoWay}" Placeholder="Apellidos"></Entry>
+                    <Picker Title="Seleccionar un Tipo de Doc." 
+                            SelectedIndex="{Binding TiposDocumentoSelectedIndex}"
+                            ItemsSource="{Binding TiposDocumento}">
+                    </Picker>!-->
+                    <Entry Text="{Binding NombresApellidos, Mode=TwoWay}" Placeholder="Nombres y Apellidos"></Entry>
+                    <Entry Text="{Binding NumIdentificacion, Mode=TwoWay}" Placeholder="Número de Identificación"></Entry>
+                    <Entry Text="{Binding Telefono, Mode=TwoWay}" Placeholder="Teléfono"></Entry>
+                    <Entry Text="{Binding TelefonoCelular, Mode=TwoWay}" Placeholder="Teléfono Celular"></Entry>
+                    <DatePicker Format="yyyy-MM-dd" Date="{Binding FechaNacimientoSelected, Mode=TwoWay}" />
+                    <Entry Text="{Binding FechaNacimiento, Mode=TwoWay}" Placeholder="Fecha Nacimiento"></Entry>
+                    <Picker Title="Seleccionar una Ciudad" SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding CiudadStr}" 
+                            ItemsSource="{Binding Ciudades}">
+                    </Picker>
+                    <Picker Title="Seleccionar un Medicamento" 
+                            SelectedItem="{Binding SelectedMedicamento, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding MedicamentoStr}" 
+                            ItemsSource="{Binding Medicamentos}" >
+                    </Picker>
+                    <Picker Title="Seleccionar una Patología" 
+                            SelectedItem="{Binding SelectedPatologia, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding PatologiaStr}" 
+                            
+                            ItemsSource="{Binding Patologias}" >
+                    </Picker>
+                    <Picker Title="Seleccionar una EPS" 
+                            SelectedItem="{Binding SelectedEps, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding EpsStr}" 
+                            
+                            ItemsSource="{Binding Epss}">
+                    </Picker>
+                    <StackLayout Orientation="Horizontal" Margin="20,0,20,0" HorizontalOptions="Fill">
+                        <Button Command="{Binding TakePhotoCommand}" HorizontalOptions="FillAndExpand" Text="Nueva Fotografía" ></Button>
+                        <Button Command="{Binding PickPhotoCommand}" HorizontalOptions="FillAndExpand" Text="Abrir Galería" ></Button>
+                    </StackLayout>
+
+                    <StackLayout Margin="20,0,20,0" HorizontalOptions="Fill">
+                        <Button Text="Diligenciar consentimiento informado" HorizontalOptions="Fill" Command="{Binding ConsentimientoInformadoCommand}" ></Button>
+                    </StackLayout>
+                    <StackLayout Margin="20,0,20,0" HorizontalOptions="Fill">
+                        <Button Text="Siguiente" HorizontalOptions="Fill" Command="{Binding ReportarPacienteCommand}" ></Button>
                     </StackLayout>
                 </StackLayout>
+                <ActivityIndicator      
+                        IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                </ActivityIndicator>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
   

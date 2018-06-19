@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="Medicos.Views.PacienteGraficoPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Ver Información Paciente">
+    <!--<ContentPage.BindingContext>
+        <local:PacienteGraficoViewModel></local:PacienteGraficoViewModel>
+    </ContentPage.BindingContext>!-->
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding PacienteGrafico}">
+                <Label Margin="0,25,0,0" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
+                <Label FontSize="Small" HorizontalOptions="StartAndExpand" Text="Mis Pacientes Ingresados"></Label>
+                <chart:SfChart x:Name="sfcPacientes" HeightRequest="250" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <chart:SfChart.Legend>
+                        <chart:ChartLegend />
+                    </chart:SfChart.Legend>
+
+                    <chart:SfChart.Title>
+                        <chart:ChartTitle Text="Pacientes"/>
+                    </chart:SfChart.Title>
+
+                    <chart:SfChart.PrimaryAxis>
+                        <chart:CategoryAxis>
+                            <chart:CategoryAxis.Title>
+                                <chart:ChartAxisTitle Text="Mes"/>
+                            </chart:CategoryAxis.Title>
+                        </chart:CategoryAxis>
+                    </chart:SfChart.PrimaryAxis>
+
+                    <chart:SfChart.SecondaryAxis>
+                        <chart:NumericalAxis>
+                            <chart:NumericalAxis.Title>
+                                <chart:ChartAxisTitle Text="Cantidad"/>
+                            </chart:NumericalAxis.Title>
+                        </chart:NumericalAxis>
+                    </chart:SfChart.SecondaryAxis>
+
+                    <chart:SfChart.Series>
+                        <chart:ColumnSeries x:Name="sfcPacientesCS" ItemsSource="{Binding Data}"  XBindingPath="Mes" YBindingPath="Cantidad" Label="Cantidad" EnableTooltip="True">
+                            <chart:ColumnSeries.DataMarker>
+                                <chart:ChartDataMarker/>
+                            </chart:ColumnSeries.DataMarker>
+                        </chart:ColumnSeries>
+                    </chart:SfChart.Series>
+                </chart:SfChart>
+                <Label FontSize="Small" HorizontalOptions="StartAndExpand" Text="Últimos Pacientes"></Label>
+                <StackLayout HeightRequest="150">
+                    <ListView
+                    x:Name="PacienteList"
+                    HasUnevenRows="true" 
+                    IsPullToRefreshEnabled="true"
+                    IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                    ItemsSource="{Binding Pacientes}"
+                    SeparatorVisibility="None"
+                    RefreshCommand="{Binding RefreshCommand}">
+                        <ListView.Header>
+                            <Grid BackgroundColor="#cccccc">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width=".35*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="Nombres" />
+                                <Label Grid.Column="1" Text="Fecha" />
+                                <Label Grid.Column="2" Text="" />
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid x:Name="Item">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width=".5*"/>
+                                            <ColumnDefinition Width=".35*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label 
+                                Grid.Column="0"
+                                Text="{Binding Nombres}"
+                                TextColor="Black">
+                                        </Label>
+                                        <Label 
+                                Grid.Column="1"
+                                Text="{Binding Fecha_Ingreso_PSP}"
+                                TextColor="Black">
+                                        </Label>
+                                        <Button Grid.Column="2" Image="ver_paciente_btn.png" WidthRequest="20" BindingContext="{Binding Source={x:Reference PacienteList}, Path=BindingContext}" Command="{Binding InformacionPacienteCommand}"   CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}">
+                                        </Button>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BuscarPacienteCommand}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="ver_info_paciente.png" WidthRequest="24"></Image>
+                <Label Text="Buscar Paciente"></Label>
+                <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding VerInformeConsolidadoCommand}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="download.png" WidthRequest="24"></Image>
+                <Label Text="Descargar Información Paciente"></Label>
+                <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <ActivityIndicator      
+                        IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+            </ActivityIndicator>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

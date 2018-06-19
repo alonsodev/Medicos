@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Medicos" 
+             xmlns:effect="clr-namespace:Medicos.Effects" 
              x:Class="Medicos.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Iniciar Sesión">
@@ -16,14 +18,44 @@
                     </StackLayout>
                     <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
                     <StackLayout Margin="20,25">
-                        <Entry Placeholder="Ingresa tu usuario..."></Entry>
-                        <Entry Placeholder="Ingresa tu contraseña..."></Entry>
+                        <Entry Keyboard="Email" 
+                               Text="{Binding Usuario, Mode=TwoWay}"
+                               Placeholder="Ingresa tu usuario..."></Entry>
+                        <Entry IsPassword="true" 
+                               Text="{Binding Password, Mode=TwoWay}"
+                               Placeholder="Ingresa tu contraseña..."></Entry>
                     </StackLayout>
                     <StackLayout Margin="50,25">
-                        <Button Command="{Binding LoginCommand}" Text="Ingresar" BorderRadius="23"></Button>
+                        <Button Command="{Binding LoginCommand}"
+                                IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                                Text="Ingresar"></Button>
+                    </StackLayout>
+                    <StackLayout Margin="25,25">
+                        <Label FontSize="Small" HorizontalOptions="Center" Text="¿No tiene usuario? - Regístrese aquí!!" TextColor="Indigo">
+                            <Label.Effects>
+                                <effect:UnderlineEffect />
+                            </Label.Effects>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RegistreseCommand}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                 </StackLayout>
+                <ActivityIndicator      
+                        IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                    <ActivityIndicator.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS, Android" Value="100" />
+                        </OnPlatform>
+                    </ActivityIndicator.WidthRequest>
+                </ActivityIndicator>
             </StackLayout>
+            
         </ScrollView>
+        
     </ContentPage.Content>
+    
 </ContentPage>

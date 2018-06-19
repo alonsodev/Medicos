@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Medicos.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,8 +7,57 @@ namespace Medicos.ViewModels
 {
     public class MainViewModel
     {
+        #region Properties
+        public List<PacienteView> PacientesList
+        {
+            get;
+            set;
+        }
+
+        public PacienteView PacienteInfo
+        {
+            get;
+            set;
+        }
+
+        public List<Notificacion> NotificacionesList
+        {
+            get;
+            set;
+        }
+
+        public Paciente Paciente
+        {
+            get;
+            set;
+        }
+        public TokenResponse Token
+        {
+            get;
+            set;
+        }
+
+        public String Usuario
+        {
+            get;
+            set;
+        }
+        #endregion
+
         #region ViewModels
+        public PdfViewerViewModel PdfViewer
+        {
+            get;
+            set;
+        }
+
         public LoginViewModel Login
+        {
+            get;
+            set;
+        }
+
+        public RegistrarViewModel Registrar
         {
             get;
             set;
@@ -24,6 +74,13 @@ namespace Medicos.ViewModels
             get;
             set;
         }
+
+        public PacienteGraficoViewModel PacienteGrafico
+        {
+            get;
+            set;
+        }
+        
 
         public ConsentimientoInformadoViewModel ConsentimientoInformado
         {
@@ -71,7 +128,14 @@ namespace Medicos.ViewModels
             get;
             set;
         }
+
+        public NotificacionesViewModel Notificaciones
+        {
+            get;
+            set;
+        }
         
+
         #endregion
 
         #region Constructors

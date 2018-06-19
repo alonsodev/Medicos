@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicos.Views.PdfViewerPage"
+             xmlns:local="clr-namespace:Medicos" 
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Consentimiento Informado">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding PdfViewer}">
+            <Grid x:Name="pdfViewGrid" VerticalOptions="FillAndExpand">
+                <syncfusion:SfPdfViewer VerticalOptions="FillAndExpand" x:Name="pdfViewerControl" InputFileStream="{Binding PdfDocumentStream}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

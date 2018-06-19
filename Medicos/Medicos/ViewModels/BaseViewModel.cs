@@ -5,12 +5,25 @@ using System.Text;
 namespace Medicos.ViewModels
 {
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
 
     public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private ObservableCollection<string> _tiposDocumento;
+        public ObservableCollection<string> TiposDocumento
+        {
+            get { return _tiposDocumento; }
+            set
+            {
+                if (Equals(value, _tiposDocumento)) return;
+                _tiposDocumento = value;
+                OnPropertyChanged(nameof(TiposDocumento));
+            }
+        }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

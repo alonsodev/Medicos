@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medicos.Views.RegistrarPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Solicitud de Usuario">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Registrar}">
+                <Label Text="Solicitud de Usuario" FontSize="20"></Label>
+                <StackLayout Margin="5,0,5,0">
+                    <Entry Text="{Binding Nombres, Mode=TwoWay}" Placeholder="Nombres y Apellidos"></Entry>
+                    <Entry Text="{Binding Correo, Mode=TwoWay}" Placeholder="Correo Electrónico"></Entry>
+                    <Picker Title="Seleccionar una Especialidad" SelectedItem="{Binding SelectedEspecialidad, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding EspecialidadStr}" 
+                            ItemsSource="{Binding Especialidades}">
+                    </Picker>
+                    <Entry Text="{Binding TelFijo, Mode=TwoWay}" Placeholder="Teléfono Fijo"></Entry>
+                    <Entry Text="{Binding TelCelular, Mode=TwoWay}" Placeholder="Teléfono Celular"></Entry>
+                    <Picker Title="Seleccionar una Ciudad" SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding CiudadStr}" 
+                            ItemsSource="{Binding Ciudades}">
+                    </Picker>
+                    <Entry IsPassword="true" 
+                               Text="{Binding Password, Mode=TwoWay}"
+                               Placeholder="Ingresa tu contraseña..."></Entry>
+                    <StackLayout Margin="20,0,20,0" HorizontalOptions="Center">
+                        <Button Text="Finalizar Registro" HorizontalOptions="Fill" Command="{Binding FinalizarRegistroCommand}" ></Button>
+                    </StackLayout>
+                </StackLayout>
+                <ActivityIndicator      
+                        IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                    <ActivityIndicator.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS, Android" Value="100" />
+                        </OnPlatform>
+                    </ActivityIndicator.WidthRequest>
+                </ActivityIndicator>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

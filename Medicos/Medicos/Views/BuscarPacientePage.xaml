@@ -8,28 +8,73 @@
         <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding BuscarPaciente}">
             <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
             <Label FontSize="Medium" HorizontalOptions="StartAndExpand" Text="Por favor ingrese el nombre o número de cédula a Buscar"></Label>
-            <Entry Placeholder="Buscar"></Entry>
-            <Button Text="Buscar" BorderRadius="23" HorizontalOptions="Start"></Button>
-            <Button Text="Información Paciente" Command="{Binding InformacionPacienteCommand}" BorderRadius="23" HorizontalOptions="Start"></Button>
+            <SearchBar
+                BackgroundColor="Silver"
+                HeightRequest="46"
+                Text="{Binding Buscar, Mode=TwoWay}"
+                Placeholder="Buscar"
+                SearchCommand="{Binding SearchCommand}">
+            </SearchBar>
+            <!---<Button Text="Buscar" Command="{Binding BuscarCommand}" HorizontalOptions="Start"></Button>
+            <Button Text="Información Paciente" Command="{Binding InformacionPacienteCommand}" BorderRadius="23" HorizontalOptions="Start"></Button>!-->
             <Label Text="Resultados" FontAttributes="Bold" FontSize="14"></Label>
-            <ListView  x:Name="listView">
+    
+            <ListView
+                x:Name="PacienteList"
+            HasUnevenRows="true" 
+            IsPullToRefreshEnabled="true"
+            IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+            ItemsSource="{Binding Pacientes}"
+            SeparatorVisibility="None"
+            RefreshCommand="{Binding RefreshCommand}">
+                <ListView.Header>
+                    <Grid BackgroundColor="#cccccc">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".6*"/>
+                            <ColumnDefinition Width="1.2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width=".35*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" HorizontalTextAlignment="Center" Text="Cédula" />
+                        <Label Grid.Column="1" Text="Nombre" />
+                        <Label Grid.Column="2" Text="Medicamento" />
+                        <Label Grid.Column="3" Text="" />
+                    </Grid>
+                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout
-						Orientation="Horizontal">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Cédula"/>
-                                    <Label Text="Nombre" />
-                                    <Label Text="Medicamento"
-								HorizontalOptions="EndAndExpand" />
-                                    <Button Text="..." BorderRadius="23"></Button>
-                                </StackLayout>
-                            </StackLayout>
+                            <Grid x:Name="Item">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".6*"/>
+                                    <ColumnDefinition Width="1.2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width=".35*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label 
+                                Grid.Column="0"
+                                Text="{Binding Documento}"
+                                TextColor="Black">
+                                </Label>
+                                <Label 
+                                Grid.Column="1"
+                                Text="{Binding Nombres}"
+                                TextColor="Black">
+                                </Label>
+                                <Label 
+                                Grid.Column="2"
+                                Text="{Binding Medicamento}"
+                                TextColor="Black">
+                                </Label>
+                                <Button Grid.Column="3" Image="ver_paciente_btn.png" WidthRequest="20" BindingContext="{Binding Source={x:Reference PacienteList}, Path=BindingContext}" Command="{Binding InformacionPacienteCommand}"   CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}">
+                                </Button>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

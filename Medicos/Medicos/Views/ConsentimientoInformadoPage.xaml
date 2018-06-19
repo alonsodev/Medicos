@@ -10,38 +10,18 @@
             <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ConsentimientoInformado}">
                 <Label Text="Consentimiento Informado" FontSize="20"></Label>
                 <StackLayout Margin="0,0,25,0">
-                    <Entry Placeholder="Correo E. del Paciente"></Entry>
-                    <Entry Placeholder="Patología"></Entry>
-                    <Picker x:Name="picker1" Title="Seleccionar una Ciudad">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Ciudad 1</x:String>
-                                <x:String>Ciudad 2</x:String>
-                                <x:String>Ciudad 3</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
+                    <Entry Text="{Binding Correo, Mode=TwoWay}" Placeholder="Correo E. del Paciente"></Entry>
+                    <!--<Picker Title="Seleccionar una Ciudad" SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding CiudadStr}" 
+                            ItemsSource="{Binding Ciudades}">
+                    </Picker>!-->
                     <Label Text="Datos Cuidador" FontAttributes="Bold" FontSize="14"></Label>
-                    <Entry Placeholder="Nombres y Apellidos"></Entry>
-                    <Picker x:Name="picker2" Title="Tipo Documento">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Tipo Documento 1</x:String>
-                                <x:String>Tipo Documento 2</x:String>
-                                <x:String>Tipo Documento 3</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                    <Entry Placeholder="Número de Identificación"></Entry>
-                    <Entry Placeholder="Parentesco"></Entry>
-                    <Entry Placeholder="Teléfono Celular"></Entry>
+                    <Entry Text="{Binding Cuidador, Mode=TwoWay}" Placeholder="Nombres y Apellidos"></Entry>
+                    <Entry Text="{Binding CuidadorDocumento, Mode=TwoWay}" Placeholder="Número de Identificación"></Entry>
+                    <Entry Text="{Binding Parentesco, Mode=TwoWay}" Placeholder="Parentesco"></Entry>
+                    <Entry Text="{Binding CuidadorTelefono, Mode=TwoWay}" Placeholder="Teléfono Celular"></Entry>
                     <Label Text="Datos Médico Tratante" FontAttributes="Bold" FontSize="14"></Label>
-                    <Entry Placeholder="Nombres y Apellidos"></Entry>
-                    <Entry Placeholder="Correo Electrónico"></Entry>
-                    <Entry Placeholder="Especialidad"></Entry>
-                    <Entry Placeholder="Centro de Atención"></Entry>
-
-
+                    <Entry  Text="{Binding CentroAtencion, Mode=TwoWay}" Placeholder="Centro de Atención"></Entry>
                     <StackLayout Margin="40,0">
                         <Button Text="Siguiente" Command="{Binding SiguienteCommand}" BorderRadius="23"></Button>
                     </StackLayout>

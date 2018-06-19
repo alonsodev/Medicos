@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sig="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:local="clr-namespace:Medicos" 
+             xmlns:effect="clr-namespace:Medicos.Effects" 
              x:Class="Medicos.Views.ConsentimientoInformadoFirmaPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Consentimiento Informado">
@@ -14,7 +16,12 @@
                    Margin="10, 0">
                     <TableRoot>
                         <TableSection>
-                            <SwitchCell Text="Firma del Paciente" />
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Firma del Paciente"></Label>
+                                    <Switch x:Name="swtFirmaPaciente" IsToggled="{Binding FirmaPaciente, Mode=TwoWay}" Toggled="swtFirmaPacienteToogled"/>
+                                </StackLayout>
+                            </ViewCell>
                         </TableSection>
                     </TableRoot>
                 </TableView>
@@ -22,18 +29,35 @@
                    Margin="10, 0">
                     <TableRoot>
                         <TableSection>
-                            <SwitchCell Text="Firma del Representante Legal/Familiar" />
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Firma del Representante Legal/Familiar"></Label>
+                                    <Switch x:Name="swtFirmaFamiliar" IsToggled="{Binding FirmaFamiliar, Mode=TwoWay}" Toggled="swtFirmaFamiliarToogled" />
+                                </StackLayout>
+                            </ViewCell>
                         </TableSection>
                     </TableRoot>
                 </TableView>
                 <sig:SignaturePadView
                     VerticalOptions="FillAndExpand"
                     HeightRequest="250"
+                    ClearText="Limpiar"
+                    CaptionText="Firmar"
                     x:Name="signature"
                     StrokeWidth="3"
                     StrokeColor="Black" />
                 <StackLayout Margin="40,0">
-                    <Button Text="Guardar Consentimiento Informado" BorderRadius="23"></Button>
+                    <Label FontSize="Small" HorizontalOptions="Start" Text="Al hacer click en Terminar usted acepta los términos y condiciones del tratamiento de datos del programa." TextColor="Indigo">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenConsentimientoPdfCommand}" ></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                        <Label.Effects>
+                            <effect:UnderlineEffect />
+                        </Label.Effects>
+                    </Label>
+                </StackLayout>
+                <StackLayout Margin="40,0">
+                    <Button Text="Terminar" x:Name="btnTerminar" Clicked="btnTerminarOnClick" BorderRadius="23"></Button>
                 </StackLayout>
             </StackLayout>
         </StackLayout>

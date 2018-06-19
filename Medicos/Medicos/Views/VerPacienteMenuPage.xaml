@@ -24,6 +24,12 @@
                 <Label Text="Ver Informe Consolidado"></Label>
                 <Image Source="arrow_next" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="Center"></Image>
             </StackLayout>
+            <ActivityIndicator      
+                        IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+            </ActivityIndicator>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

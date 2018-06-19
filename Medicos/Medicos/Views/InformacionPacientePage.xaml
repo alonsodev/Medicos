@@ -8,34 +8,52 @@
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding InformacionPaciente}">
                 <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
-                <Grid Margin="0,25,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
-                    </Grid.ColumnDefinitions>
-                    <Label VerticalTextAlignment="Center" Text="Nombre" Grid.Row="0" Grid.Column="0" />
-                    <Entry Grid.Row="0" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="EPS" Grid.Row="1" Grid.Column="0" />
-                    <Entry Grid.Row="1" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Medicamento" Grid.Row="2" Grid.Column="0" />
-                    <Entry Grid.Row="2" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Enfermera PSP" Grid.Row="3" Grid.Column="0" />
-                    <Entry Grid.Row="3" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Ciudad" Grid.Row="4" Grid.Column="0" />
-                    <Entry Grid.Row="4" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Fecha Ingreso PSP" Grid.Row="5" Grid.Column="0" />
-                    <Entry Grid.Row="5" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Fecha Educación Trámites Admin" Grid.Row="6" Grid.Column="0" />
-                    <Entry Grid.Row="6" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Fecha Entrega Muestra Med" Grid.Row="7" Grid.Column="0" />
-                    <Entry Grid.Row="7" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Telefónico" Grid.Row="8" Grid.Column="0" />
-                    <Entry Grid.Row="8" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Presencial" Grid.Row="9" Grid.Column="0" />
-                    <Entry Grid.Row="9" Grid.Column="1"></Entry>
-                    <Label VerticalTextAlignment="Center" Text="Fecha Inicio Tratamiento" Grid.Row="10" Grid.Column="0" />
-                    <Entry Grid.Row="10" Grid.Column="1"></Entry>
-                </Grid>
+                <StackLayout Margin="0,25,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal" >
+                        <Label VerticalTextAlignment="Center" Text="Nombre" />
+                        <Entry  IsEnabled="False" Text="{Binding Nombre, Mode=TwoWay}"></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal" >
+                        <Label VerticalTextAlignment="Center" Text="EPS" />
+                        <Entry   IsEnabled="False" Text="{Binding EPS, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label VerticalTextAlignment="Center" Text="Medicamento"/>
+                        <Entry   IsEnabled="False" Text="{Binding Medicamento, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label VerticalTextAlignment="Center" Text="Enfermera PSP" />
+                        <Entry   IsEnabled="False" Text="{Binding Enfermera, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label VerticalTextAlignment="Center" Text="Ciudad" />
+                        <Entry   IsEnabled="False" Text="{Binding Ciudad, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label VerticalTextAlignment="Center" Text="Fecha Ingreso PSP" />
+                        <Entry   IsEnabled="False" Text="{Binding Fecha, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label VerticalTextAlignment="Center" Text="Fecha Educación Trámites Admin" />
+                        <Entry   IsEnabled="False" Text="{Binding FechaEducacionTramitesAdmin, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label VerticalTextAlignment="Center" Text="Fecha Entrega Muestra Med"  />
+                        <Entry  IsEnabled="False" Text="{Binding FechaEntregaMuestraMed, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Telefónico" />
+                        <Entry   IsEnabled="False" Text="{Binding FechaUltimoSeguimientoTelefonico, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Presencial" />
+                        <Entry   IsEnabled="False" Text="{Binding FechaUltimoSeguimientoPresencial, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label VerticalTextAlignment="Center" Text="Fecha Inicio Tratamiento" />
+                        <Entry   IsEnabled="False" Text="{Binding FechaInicioTratamiento, Mode=TwoWay}" ></Entry>
+                    </StackLayout>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
