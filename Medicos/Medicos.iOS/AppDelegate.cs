@@ -23,8 +23,9 @@ namespace Medicos.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Syncfusion.SfDataGrid.XForms.iOS.SfDataGridRenderer.Init();
             LoadApplication(new App());
-
+            //new SfPdfDocumentViewRenderer();
             return base.FinishedLaunching(app, options);
         }
     }
