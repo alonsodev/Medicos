@@ -78,7 +78,7 @@
                             PlaceholderColor="#5ed5f2"
                             />
                     <StackLayout Margin="20,0,20,0" HorizontalOptions="Center">
-                        <Button Text="Finalizar Registro" BackgroundColor="#12385c" TextColor="White" HorizontalOptions="Fill" Command="{Binding FinalizarRegistroCommand}" ></Button>
+                        <Button Text="Finalizar Registro" BackgroundColor="#12385c" TextColor="White" WidthRequest="180" Command="{Binding FinalizarRegistroCommand}" ></Button>
                         </StackLayout>
          
                     <ActivityIndicator      
