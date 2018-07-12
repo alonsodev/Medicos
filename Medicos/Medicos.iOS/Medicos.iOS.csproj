@@ -102,16 +102,6 @@
     <BundleResource Include="Resources\Default-Portrait%402x.png" />
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\Default%402x.png" />
-    <BundleResource Include="Resources\Icon-60%402x.png" />
-    <BundleResource Include="Resources\Icon-60%403x.png" />
-    <BundleResource Include="Resources\Icon-76.png" />
-    <BundleResource Include="Resources\Icon-76%402x.png" />
-    <BundleResource Include="Resources\Icon-Small-40.png" />
-    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
-    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
-    <BundleResource Include="Resources\Icon-Small.png" />
-    <BundleResource Include="Resources\Icon-Small%402x.png" />
-    <BundleResource Include="Resources\Icon-Small%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +118,102 @@
       <Project>{804a036e-475a-43fc-b9b7-af0da7214376}</Project>
       <Name>Medicos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\infor_consol_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ingresar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_astrazeneca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\notificaciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\notificaciones_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nueva_foto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\reportar_paciente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\reportar_paciente_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sign_out_option.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\siguiente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\top_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ver_info_paciente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ver_infor_consol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ver_infor_pac.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ver_infor_paciente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ver_paciente_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\descargar_infor_consol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\abrir_galeria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\add_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\beneficios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bienvenido_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\buscar_paciente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\buscar_paciente_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cerrar_sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\circle_cam_juntos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\datos_med_tratante.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
