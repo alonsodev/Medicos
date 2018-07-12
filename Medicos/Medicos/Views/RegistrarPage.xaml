@@ -2,45 +2,98 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Medicos.Views.RegistrarPage"
+             xmlns:local="clr-namespace:Medicos" 
+             xmlns:custom="clr-namespace:Medicos.CustomEntry"
+             xmlns:customP="clr-namespace:Medicos.CustomPicker"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Solicitud de Usuario">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Registrar}">
-                <Label Text="Solicitud de Usuario" FontSize="20"></Label>
-                <StackLayout Margin="5,0,5,0">
-                    <Entry Text="{Binding Nombres, Mode=TwoWay}" Placeholder="Nombres y Apellidos"></Entry>
-                    <Entry Text="{Binding Correo, Mode=TwoWay}" Placeholder="Correo Electrónico"></Entry>
-                    <Picker Title="Seleccionar una Especialidad" SelectedItem="{Binding SelectedEspecialidad, Mode=TwoWay}"
-                            ItemDisplayBinding="{Binding EspecialidadStr}" 
-                            ItemsSource="{Binding Especialidades}">
-                    </Picker>
-                    <Entry Text="{Binding TelFijo, Mode=TwoWay}" Placeholder="Teléfono Fijo"></Entry>
-                    <Entry Text="{Binding TelCelular, Mode=TwoWay}" Placeholder="Teléfono Celular"></Entry>
-                    <Picker Title="Seleccionar una Ciudad" SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"
-                            ItemDisplayBinding="{Binding CiudadStr}" 
-                            ItemsSource="{Binding Ciudades}">
-                    </Picker>
-                    <Entry IsPassword="true" 
-                               Text="{Binding Password, Mode=TwoWay}"
-                               Placeholder="Ingresa tu contraseña..."></Entry>
-                    <StackLayout Margin="20,0,20,0" HorizontalOptions="Center">
-                        <Button Text="Finalizar Registro" HorizontalOptions="Fill" Command="{Binding FinalizarRegistroCommand}" ></Button>
-                    </StackLayout>
+                <StackLayout Margin="0,0,0,0">
+                    <Image Source="top_bg.jpg" HorizontalOptions="Center"></Image>
                 </StackLayout>
-                <ActivityIndicator      
-                        IsRunning="{Binding IsRunning, Mode=TwoWay}"
-                        IsVisible="{Binding IsBusy}"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center">
-                    <ActivityIndicator.WidthRequest>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="iOS, Android" Value="100" />
-                        </OnPlatform>
-                    </ActivityIndicator.WidthRequest>
-                </ActivityIndicator>
-            </StackLayout>
+                <StackLayout VerticalOptions="StartAndExpand"  StyleClass="MainSL2" >
+                    <custom:CustomEntry   Margin="0,-25,0,0"
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            Text="{Binding Nombres, Mode=TwoWay}" Placeholder="Nombres y Apellidos"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+          
+                        <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            Text="{Binding Correo, Mode=TwoWay}" Placeholder="Correo Electrónico"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                    <customP:CustomPicker
+                            Title="Seleccionar una Especialidad" SelectedItem="{Binding SelectedEspecialidad, Mode=TwoWay}"
+                                ItemDisplayBinding="{Binding EspecialidadStr}" 
+                                ItemsSource="{Binding Especialidades}"
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            />
 
+                        <custom:CustomEntry  
+                                CornerRadius="18"  
+                                IsCurvedCornersEnabled="True"    
+                                Text="{Binding TelFijo, Mode=TwoWay}" Placeholder="Teléfono Fijo"
+                                BackgroundColor="White"
+                                TextColor="#02a8d0"
+                                PlaceholderColor="#5ed5f2"
+                                />
+                        <custom:CustomEntry  
+                                CornerRadius="18"  
+                                IsCurvedCornersEnabled="True"    
+                                Text="{Binding TelCelular, Mode=TwoWay}" Placeholder="Teléfono Celular"
+                                BackgroundColor="White"
+                                TextColor="#02a8d0"
+                                PlaceholderColor="#5ed5f2"
+                                />
+                    <customP:CustomPicker
+                            Title="Seleccionar una Ciudad" SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"
+                                ItemDisplayBinding="{Binding CiudadStr}" 
+                                ItemsSource="{Binding Ciudades}"
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            />
+                    
+                    <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsPassword="true" 
+                            Text="{Binding Password, Mode=TwoWay}"
+                            Placeholder="Ingresa tu contraseña..."
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                    <StackLayout Margin="20,0,20,0" HorizontalOptions="Center">
+                        <Button Text="Finalizar Registro" BackgroundColor="#12385c" TextColor="White" HorizontalOptions="Fill" Command="{Binding FinalizarRegistroCommand}" ></Button>
+                        </StackLayout>
+         
+                    <ActivityIndicator      
+                            IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                            IsVisible="{Binding IsBusy}"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center">
+                        <ActivityIndicator.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS, Android" Value="100" />
+                            </OnPlatform>
+                        </ActivityIndicator.WidthRequest>
+                    </ActivityIndicator>
+                </StackLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

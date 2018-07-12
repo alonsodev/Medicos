@@ -2,79 +2,95 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Medicos.Views.BuscarPacientePage"
+             xmlns:local="clr-namespace:Medicos" 
+             xmlns:custom="clr-namespace:Medicos.CustomSearchBar"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Caminando Juntos">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding BuscarPaciente}">
-            <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
-            <Label FontSize="Medium" HorizontalOptions="StartAndExpand" Text="Por favor ingrese el nombre o número de cédula a Buscar"></Label>
-            <SearchBar
-                BackgroundColor="Silver"
-                HeightRequest="46"
-                Text="{Binding Buscar, Mode=TwoWay}"
-                Placeholder="Buscar"
-                SearchCommand="{Binding SearchCommand}">
-            </SearchBar>
-            <!---<Button Text="Buscar" Command="{Binding BuscarCommand}" HorizontalOptions="Start"></Button>
-            <Button Text="Información Paciente" Command="{Binding InformacionPacienteCommand}" BorderRadius="23" HorizontalOptions="Start"></Button>!-->
-            <Label Text="Resultados" FontAttributes="Bold" FontSize="14"></Label>
-    
-            <ListView
-                x:Name="PacienteList"
-            HasUnevenRows="true" 
-            IsPullToRefreshEnabled="true"
-            IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
-            ItemsSource="{Binding Pacientes}"
-            SeparatorVisibility="None"
-            RefreshCommand="{Binding RefreshCommand}">
-                <ListView.Header>
-                    <Grid BackgroundColor="#cccccc">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width=".6*"/>
-                            <ColumnDefinition Width="1.2*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width=".35*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" HorizontalTextAlignment="Center" Text="Cédula" />
-                        <Label Grid.Column="1" Text="Nombre" />
-                        <Label Grid.Column="2" Text="Medicamento" />
-                        <Label Grid.Column="3" Text="" />
-                    </Grid>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid x:Name="Item">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width=".6*"/>
-                                    <ColumnDefinition Width="1.2*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width=".35*"/>
-                                </Grid.ColumnDefinitions>
-                                <Label 
-                                Grid.Column="0"
-                                Text="{Binding Documento}"
-                                TextColor="Black">
-                                </Label>
-                                <Label 
-                                Grid.Column="1"
-                                Text="{Binding Nombres}"
-                                TextColor="Black">
-                                </Label>
-                                <Label 
-                                Grid.Column="2"
-                                Text="{Binding Medicamento}"
-                                TextColor="Black">
-                                </Label>
-                                <Button Grid.Column="3" Image="ver_paciente_btn.png" WidthRequest="20" BindingContext="{Binding Source={x:Reference PacienteList}, Path=BindingContext}" Command="{Binding InformacionPacienteCommand}"   CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}">
-                                </Button>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            
-            
+            <StackLayout Margin="0,0,0,0">
+                <Image Source="top_bg.jpg" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand"  StyleClass="MainSL2" >
+                <Label FontSize="Medium" TextColor="White" HorizontalOptions="StartAndExpand" Margin="0,-50,0,0" Text="Por favor ingrese el nombre o número de cédula a Buscar"></Label>
+                <custom:CustomSearchBar
+                    BackgroundColor="White"
+                    CornerRadius="18"  
+                            IsCurvedCornersEnabled="True" 
+                    HorizontalTextAlignment="Start"
+                    HeightRequest="46"
+                    TextColor="#02a8d0"
+                    Text="{Binding Buscar, Mode=TwoWay}"
+                    Placeholder="Buscar"
+                    PlaceholderColor="#5ed5f2"
+                    SearchCommand="{Binding SearchCommand}">
+                </custom:CustomSearchBar>
+                <!---<Button Text="Buscar" Command="{Binding BuscarCommand}" HorizontalOptions="Start"></Button>
+                <Button Text="Información Paciente" Command="{Binding InformacionPacienteCommand}" BorderRadius="23" HorizontalOptions="Start"></Button>!-->
+                <Label Text="Resultados" TextColor="White" FontAttributes="Bold" FontSize="14"></Label>
+
+                <ListView
+                    x:Name="PacienteList"
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Pacientes}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                    <ListView.Header>
+                        <Grid BackgroundColor="#12385c">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".6*"/>
+                                <ColumnDefinition Width="1.2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width=".35*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" Text="Cédula" />
+                            <Label Grid.Column="1" TextColor="White" FontAttributes="Bold" Text="Nombre" />
+                            <Label Grid.Column="2" TextColor="White" FontAttributes="Bold" Text="Medicamento" />
+                            <Label Grid.Column="3" TextColor="White" FontAttributes="Bold" Text="" />
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid x:Name="Item">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".6*"/>
+                                        <ColumnDefinition Width="1.2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width=".35*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label 
+                                    Grid.Column="0"
+                                    Text="{Binding Documento}"
+                                    TextColor="White">
+                                    </Label>
+                                    <Label 
+                                    Grid.Column="1"
+                                    Text="{Binding Nombres}"
+                                    TextColor="White">
+                                    </Label>
+                                    <Label 
+                                    Grid.Column="2"
+                                    Text="{Binding Medicamento}"
+                                    TextColor="White">
+                                    </Label>
+                                    <Image Grid.Column="3" Source="ver_paciente_btn.png" HorizontalOptions="Center" WidthRequest="20">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer BindingContext="{Binding Source={x:Reference PacienteList}, Path=BindingContext}" Command="{Binding InformacionPacienteCommand}" CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </StackLayout>
+            <StackLayout Margin="0,0,0,0" VerticalOptions="End">
+                <Image Source="buscar_paciente_bg.png" HorizontalOptions="StartAndExpand"></Image>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

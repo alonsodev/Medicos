@@ -234,7 +234,7 @@ namespace Medicos.ViewModels
 
         private bool IsValidPassword(string password)
         {
-            Regex regex = new Regex(@"^(?=.\d)(?=.[\u0021-\u002b\u003c-\u0040])(?=.[A-Z])(?=.[a-z])\S{8,16}$");
+            Regex regex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,16}$");
             Match match = regex.Match(password);
             if (match.Success)
             {

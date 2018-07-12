@@ -2,36 +2,59 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Medicos" 
-             xmlns:effect="clr-namespace:Medicos.Effects" 
+             xmlns:effect="clr-namespace:Medicos.Effects"
+             xmlns:custom="clr-namespace:Medicos.CustomEntry"
              x:Class="Medicos.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Iniciar Sesión">
+             Title="Iniciar Sesión"
+             >
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Login}">
+                <StackLayout Margin="0,0,0,0">
+                    <Image Source="top_bg.jpg" HorizontalOptions="Center"></Image>
+                </StackLayout>
+                <StackLayout Margin="100,-50,100,10">
+                    <Image Source="circle_cam_juntos.png" HorizontalOptions="Center"></Image>
+                </StackLayout>
+                <StackLayout Margin="0,0,0,10">
+                    <Image Source="bienvenido_text.png" WidthRequest="120"  HorizontalOptions="Center"></Image>
+                </StackLayout>
+                <StackLayout Margin="0,0,0,10">
+                    <Image Source="person.jpg" WidthRequest="85" HorizontalOptions="Center"></Image>
+                </StackLayout>
                 <StackLayout VerticalOptions="CenterAndExpand">
-                    <StackLayout Margin="0,0,0,25">
-                        <Image Source="logo.png" HeightRequest="50"></Image>
+                    <StackLayout Margin="20,15">
+                        <custom:CustomEntry  
+                            Keyboard="Email"
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            Text="{Binding Usuario, Mode=TwoWay}"
+                            Placeholder="Ingresa tu usuario..." 
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        <custom:CustomEntry  
+                            IsPassword="true" 
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            Text="{Binding Password, Mode=TwoWay}"
+                            Placeholder="Ingresa tu contraseña..." 
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
                     </StackLayout>
-                    <StackLayout Margin="0,0,0,25">
-                        <Label FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" Text="Bienvenido"></Label>
+                    <StackLayout Margin="50,15">
+                        <Image Source="ingresar.png" WidthRequest="125" HorizontalOptions="Center" IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
                     </StackLayout>
-                    <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
-                    <StackLayout Margin="20,25">
-                        <Entry Keyboard="Email" 
-                               Text="{Binding Usuario, Mode=TwoWay}"
-                               Placeholder="Ingresa tu usuario..."></Entry>
-                        <Entry IsPassword="true" 
-                               Text="{Binding Password, Mode=TwoWay}"
-                               Placeholder="Ingresa tu contraseña..."></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="50,25">
-                        <Button Command="{Binding LoginCommand}"
-                                IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
-                                Text="Ingresar"></Button>
-                    </StackLayout>
-                    <StackLayout Margin="25,25">
-                        <Label FontSize="Small" HorizontalOptions="Center" Text="¿No tiene usuario? - Regístrese aquí!!" TextColor="Indigo">
+                    <StackLayout Margin="25,15">
+                        <Label FontSize="Small" HorizontalOptions="Center" Text="¿No tiene usuario? - Regístrese aquí!!" TextColor="White">
                             <Label.Effects>
                                 <effect:UnderlineEffect />
                             </Label.Effects>
@@ -40,6 +63,11 @@
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout>
+
+                    <StackLayout Margin="95,0,95,25">
+                        <Image Source="logo_astrazeneca.png" HorizontalOptions="Center"></Image>
+                    </StackLayout>
+                    <Label HorizontalOptions="Center" Text="Línea de atención gratuita nacional: 018000958020 - Bogotá: 6444507" TextColor="White" FontSize="Micro"></Label>
                 </StackLayout>
                 <ActivityIndicator      
                         IsRunning="{Binding IsRunning, Mode=TwoWay}"

@@ -8,44 +8,54 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Caminando Juntos">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding InformeConsolidado}">
-            <Label FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
-            <Label FontAttributes="Bold" FontSize="Medium" HorizontalOptions="StartAndExpand" Text="Información Consolidada de Pacientes"></Label>
-            <Label TextColor="Indigo" FontSize="Small" HorizontalOptions="StartAndExpand" Text="Descargar Informe Completo">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding OpenConsolidadoPdfCommand}" ></TapGestureRecognizer>
-                </Label.GestureRecognizers>
-                <Label.Effects>
-                    <effect:UnderlineEffect />
-                </Label.Effects>
-            </Label>
-            <Button Text="Buscar" BorderRadius="23" HorizontalOptions="Start"></Button>
-            <syncfusion:SfDataGrid x:Name="dataGrid"
-            ColumnSizer="Star"
-            AutoGenerateColumns="False"
-                                   GroupCaptionTextFormat="{}{ColumnName}: {Key}"
-            ItemsSource="{Binding PacientesCantidad}">
-                <syncfusion:SfDataGrid.GroupColumnDescriptions>
-                    <syncfusion:GroupColumnDescription ColumnName="Año"  />
+            <StackLayout Margin="0,0,0,0">
+                <Image Source="top_bg.jpg" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand"  StyleClass="MainSL2" >
+                <Label Margin="0,-50,0,0" FontSize="Medium" TextColor="White" HorizontalOptions="StartAndExpand" Text="Información Consolidada de Pacientes"></Label>
+                <StackLayout Margin="0,0,0,20">
+                    <Image Source="descargar_infor_consol.png" WidthRequest="235" HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenConsolidadoPdfCommand}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
 
-                </syncfusion:SfDataGrid.GroupColumnDescriptions>
-                <syncfusion:SfDataGrid.Columns
-                    x:TypeArguments="syncfusion:Columns"
-                    AllowGroupExpandCollapse="True">
+                <syncfusion:SfDataGrid x:Name="dataGrid" BackgroundColor="Transparent"
+                ColumnSizer="Star"
+                AutoGenerateColumns="False"
+                                      
+                                       GroupCaptionTextFormat="{}{ColumnName}: {Key}"
+                ItemsSource="{Binding PacientesCantidad}">
+                    <syncfusion:SfDataGrid.GroupColumnDescriptions>
+                        <syncfusion:GroupColumnDescription ColumnName="Año"  />
 
-                    <syncfusion:GridTextColumn HeaderText="Mes" 
-                                   MappingName="Mes" />
-                    <syncfusion:GridTextColumn HeaderText="N° Pacientes"
-                                   MappingName="Cantidad" />
-                    <syncfusion:GridTemplateColumn MappingName="Año" HeaderText="" Width="40">
-                        <syncfusion:GridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Image="ver_paciente_btn.png" BindingContext="{Binding Source={x:Reference dataGrid}, Path=BindingContext}" Command="{Binding OpenConsolidadoPdfRowCommand}" CommandParameter="{Binding Source={x:Reference dataGrid}}"/>
-                            </DataTemplate>
-                        </syncfusion:GridTemplateColumn.CellTemplate>
-                    </syncfusion:GridTemplateColumn>
-                </syncfusion:SfDataGrid.Columns>
-            </syncfusion:SfDataGrid>
+                    </syncfusion:SfDataGrid.GroupColumnDescriptions>
+                    <syncfusion:SfDataGrid.Columns
+                        x:TypeArguments="syncfusion:Columns"
+                        AllowGroupExpandCollapse="True">
+
+                        <syncfusion:GridTextColumn HeaderText="Mes"
+                                       MappingName="Mes" />
+                        <syncfusion:GridTextColumn HeaderText="N° Pacientes"
+                                       MappingName="Cantidad" />
+                        <!--<syncfusion:GridTemplateColumn MappingName="Año" HeaderText="" Width="40">
+                            <syncfusion:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Image="ver_paciente_btn.png" BindingContext="{Binding Source={x:Reference dataGrid}, Path=BindingContext}" Command="{Binding OpenConsolidadoPdfRowCommand}" CommandParameter="{Binding Source={x:Reference dataGrid}}"/>
+                                </DataTemplate>
+                            </syncfusion:GridTemplateColumn.CellTemplate>
+                        </syncfusion:GridTemplateColumn>!-->
+                    </syncfusion:SfDataGrid.Columns>
+                </syncfusion:SfDataGrid>
+            </StackLayout>
+            <StackLayout Margin="0,0,0,0">
+                <Image Source="infor_consol_bg.png" HorizontalOptions="StartAndExpand"></Image>
+            </StackLayout>
+            
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

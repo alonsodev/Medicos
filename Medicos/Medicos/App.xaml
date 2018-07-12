@@ -7,8 +7,24 @@
         <ResourceDictionary>
             <infra:InstanceLocator x:Key="Locator" />
             <Style TargetType="StackLayout" Class="MainSL">
-                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#01aad1" />
+            </Style>
+            <Style TargetType="StackLayout" Class="MainSL2">
+                <Setter Property="BackgroundColor" Value="#01aad1" />
                 <Setter Property="Padding" Value="10,20,10,20" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="#02a8d0" />
+                <Setter Property="PlaceholderColor" Value="#5ed5f2" />
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="#02a8d0" />
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="#02a8d0" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -7,8 +7,12 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Beneficios}">
-                <Label FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
-                <Label FontSize="Medium" HorizontalOptions="StartAndExpand" Text="{Binding BeneficioStr, Mode=TwoWay}"></Label>
+                <StackLayout Margin="0,0,0,0">
+                    <Image Source="top_bg.jpg" HorizontalOptions="Center"></Image>
+                </StackLayout>
+                <StackLayout VerticalOptions="StartAndExpand"  StyleClass="MainSL2" >
+                    <Label FontSize="Medium" TextColor="White" Margin="0,-50,0,0" HorizontalOptions="StartAndExpand" Text="{Binding BeneficioStr, Mode=TwoWay}"></Label>
+                </StackLayout>
                 <!--<Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Acompañamiento presencial y/o telefónico durante el tratamiento"></Label>
                 <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Asesoramiento en trámites para la obtención del medicamento"></Label>
                 <Label  FontSize="Small" HorizontalOptions="StartAndExpand" Text="Soporte telefónico dirigido por profesionales de la salud"></Label>

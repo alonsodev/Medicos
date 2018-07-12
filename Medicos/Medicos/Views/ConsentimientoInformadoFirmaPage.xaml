@@ -10,54 +10,59 @@
 
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ConsentimientoInformadoFirma}">
-            <Label Text="Consentimiento Informado" FontSize="20"></Label>
-            <StackLayout Margin="0,0,25,0">
-                <TableView Intent="Form" HeightRequest="50"
-                   Margin="10, 0">
-                    <TableRoot>
-                        <TableSection>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Firma del Paciente"></Label>
-                                    <Switch x:Name="swtFirmaPaciente" IsToggled="{Binding FirmaPaciente, Mode=TwoWay}" Toggled="swtFirmaPacienteToogled"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </TableSection>
-                    </TableRoot>
-                </TableView>
-                <TableView Intent="Form" HeightRequest="50"
-                   Margin="10, 0">
-                    <TableRoot>
-                        <TableSection>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Firma del Representante Legal/Familiar"></Label>
-                                    <Switch x:Name="swtFirmaFamiliar" IsToggled="{Binding FirmaFamiliar, Mode=TwoWay}" Toggled="swtFirmaFamiliarToogled" />
-                                </StackLayout>
-                            </ViewCell>
-                        </TableSection>
-                    </TableRoot>
-                </TableView>
-                <sig:SignaturePadView
-                    VerticalOptions="FillAndExpand"
-                    HeightRequest="250"
-                    ClearText="Limpiar"
-                    CaptionText="Firmar"
-                    x:Name="signature"
-                    StrokeWidth="3"
-                    StrokeColor="Black" />
-                <StackLayout Margin="40,0">
-                    <Label FontSize="Small" HorizontalOptions="Start" Text="Al hacer click en Terminar usted acepta los términos y condiciones del tratamiento de datos del programa." TextColor="Indigo">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenConsentimientoPdfCommand}" ></TapGestureRecognizer>
-                        </Label.GestureRecognizers>
-                        <Label.Effects>
-                            <effect:UnderlineEffect />
-                        </Label.Effects>
-                    </Label>
-                </StackLayout>
-                <StackLayout Margin="40,0">
-                    <Button Text="Terminar" x:Name="btnTerminar" Clicked="btnTerminarOnClick" BorderRadius="23"></Button>
+            <StackLayout Margin="0,0,0,0">
+                <Image Source="top_bg.jpg" HorizontalOptions="Center"></Image>
+            </StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand" StyleClass="MainSL2">
+                <StackLayout Margin="5,0,5,0">
+                    <TableView Intent="Form" HeightRequest="50"
+                       Margin="10, 0">
+                        <TableRoot>
+                            <TableSection>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label TextColor="White" Text="Firma del Paciente"></Label>
+                                        <Switch x:Name="swtFirmaPaciente" IsToggled="{Binding FirmaPaciente, Mode=TwoWay}" Toggled="swtFirmaPacienteToogled"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </TableSection>
+                        </TableRoot>
+                    </TableView>
+                    <TableView Intent="Form" HeightRequest="50"
+                       Margin="10, 0">
+                        <TableRoot>
+                            <TableSection>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label TextColor="White" Text="Firma del Representante Legal/Familiar"></Label>
+                                        <Switch x:Name="swtFirmaFamiliar" IsToggled="{Binding FirmaFamiliar, Mode=TwoWay}" Toggled="swtFirmaFamiliarToogled" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </TableSection>
+                        </TableRoot>
+                    </TableView>
+                    <sig:SignaturePadView
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="250"
+                        ClearText="Limpiar"
+                        CaptionText="Firmar"
+                        BackgroundColor="White"
+                        x:Name="signature"
+                        StrokeWidth="3"
+                        StrokeColor="Black" />
+                    <StackLayout Margin="40,0">
+                        <Label FontSize="Small" HorizontalOptions="Start" Text="Al hacer click en Terminar usted acepta los términos y condiciones del tratamiento de datos del programa." TextColor="White">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenConsentimientoPdfCommand}" ></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                            <Label.Effects>
+                                <effect:UnderlineEffect />
+                            </Label.Effects>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout Margin="40,0">
+                        <Button Text="Terminar" x:Name="btnTerminar" Clicked="btnTerminarOnClick" BorderRadius="23"></Button>
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
         </StackLayout>

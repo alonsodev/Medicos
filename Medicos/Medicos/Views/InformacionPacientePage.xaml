@@ -2,56 +2,139 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Medicos.Views.InformacionPacientePage"
+             xmlns:local="clr-namespace:Medicos" 
+             xmlns:custom="clr-namespace:Medicos.CustomEntry"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Caminando Juntos">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding InformacionPaciente}">
-                <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Caminando Juntos"></Label>
-                <StackLayout Margin="0,25,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal" >
-                        <Label VerticalTextAlignment="Center" Text="Nombre" />
-                        <Entry  IsEnabled="False" Text="{Binding Nombre, Mode=TwoWay}"></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal" >
-                        <Label VerticalTextAlignment="Center" Text="EPS" />
-                        <Entry   IsEnabled="False" Text="{Binding EPS, Mode=TwoWay}" ></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
-                        <Label VerticalTextAlignment="Center" Text="Medicamento"/>
-                        <Entry   IsEnabled="False" Text="{Binding Medicamento, Mode=TwoWay}" ></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
-                        <Label VerticalTextAlignment="Center" Text="Enfermera PSP" />
-                        <Entry   IsEnabled="False" Text="{Binding Enfermera, Mode=TwoWay}" ></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
-                        <Label VerticalTextAlignment="Center" Text="Ciudad" />
-                        <Entry   IsEnabled="False" Text="{Binding Ciudad, Mode=TwoWay}" ></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
-                        <Label VerticalTextAlignment="Center" Text="Fecha Ingreso PSP" />
-                        <Entry   IsEnabled="False" Text="{Binding Fecha, Mode=TwoWay}" ></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
-                        <Label VerticalTextAlignment="Center" Text="Fecha Educación Trámites Admin" />
-                        <Entry   IsEnabled="False" Text="{Binding FechaEducacionTramitesAdmin, Mode=TwoWay}" ></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
-                        <Label VerticalTextAlignment="Center" Text="Fecha Entrega Muestra Med"  />
-                        <Entry  IsEnabled="False" Text="{Binding FechaEntregaMuestraMed, Mode=TwoWay}" ></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
-                        <Label VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Telefónico" />
-                        <Entry   IsEnabled="False" Text="{Binding FechaUltimoSeguimientoTelefonico, Mode=TwoWay}" ></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
-                        <Label VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Presencial" />
-                        <Entry   IsEnabled="False" Text="{Binding FechaUltimoSeguimientoPresencial, Mode=TwoWay}" ></Entry>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
-                        <Label VerticalTextAlignment="Center" Text="Fecha Inicio Tratamiento" />
-                        <Entry   IsEnabled="False" Text="{Binding FechaInicioTratamiento, Mode=TwoWay}" ></Entry>
+                <StackLayout Margin="0,0,0,0">
+                    <Image Source="top_bg.jpg" HorizontalOptions="Center"></Image>
+                </StackLayout>
+                <StackLayout VerticalOptions="StartAndExpand"  StyleClass="MainSL2" >
+                    <StackLayout Margin="0,0,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <StackLayout Margin="0,-25,0,0" Orientation="Vertical" >
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Nombre" />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding Nombre, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical" >
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="EPS" />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding EPS, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Medicamento"/>
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding Medicamento, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Enfermera PSP" />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding Enfermera, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Ciudad" />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding Ciudad, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Fecha Ingreso PSP" />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding Fecha, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Fecha Educación Trámites Admin" />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding FechaEducacionTramitesAdmin, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Fecha Entrega Muestra Med"  />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding FechaEntregaMuestraMed, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Telefónico" />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding FechaUltimoSeguimientoTelefonico, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Fecha Último Seguimiento Presencial" />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding FechaUltimoSeguimientoPresencial, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                            <Label TextColor="White" VerticalTextAlignment="Center" Text="Fecha Inicio Tratamiento" />
+                            <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            IsEnabled="False" Text="{Binding FechaInicioTratamiento, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        </StackLayout>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

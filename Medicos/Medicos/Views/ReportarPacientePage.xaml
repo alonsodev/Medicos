@@ -2,59 +2,146 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Medicos.Views.ReportarPacientePage"
+             xmlns:local="clr-namespace:Medicos" 
+             xmlns:effect="clr-namespace:Medicos.Effects" 
+             xmlns:custom="clr-namespace:Medicos.CustomEntry"
+             xmlns:customDP="clr-namespace:Medicos.CustomDatePicker"
+             xmlns:customP="clr-namespace:Medicos.CustomPicker"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Reportar Paciente">
   
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ReportarPaciente}">
-                <Label Text="Reportar Paciente" FontSize="20"></Label>
-                <StackLayout Margin="5,0,5,0">
-                    <!--<Entry Text="{Binding Nombres, Mode=TwoWay}" Placeholder="Nombres"></Entry>
+                <StackLayout Margin="0,0,0,0">
+                    <Image Source="top_bg.jpg" HorizontalOptions="Center"></Image>
+                </StackLayout>
+                <StackLayout VerticalOptions="StartAndExpand" StyleClass="MainSL2">
+                    <StackLayout Margin="5,-25,5,0">
+                        <!--<Entry Text="{Binding Nombres, Mode=TwoWay}" Placeholder="Nombres"></Entry>
                     <Entry Text="{Binding Apellidos, Mode=TwoWay}" Placeholder="Apellidos"></Entry>
                     <Picker Title="Seleccionar un Tipo de Doc." 
                             SelectedIndex="{Binding TiposDocumentoSelectedIndex}"
                             ItemsSource="{Binding TiposDocumento}">
                     </Picker>!-->
-                    <Entry Text="{Binding NombresApellidos, Mode=TwoWay}" Placeholder="Nombres y Apellidos"></Entry>
-                    <Entry Text="{Binding NumIdentificacion, Mode=TwoWay}" Placeholder="Número de Identificación"></Entry>
-                    <Entry Text="{Binding Telefono, Mode=TwoWay}" Placeholder="Teléfono"></Entry>
-                    <Entry Text="{Binding TelefonoCelular, Mode=TwoWay}" Placeholder="Teléfono Celular"></Entry>
-                    <DatePicker Format="yyyy-MM-dd" Date="{Binding FechaNacimientoSelected, Mode=TwoWay}" />
-                    <Entry Text="{Binding FechaNacimiento, Mode=TwoWay}" Placeholder="Fecha Nacimiento"></Entry>
-                    <Picker Title="Seleccionar una Ciudad" SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"
+                        <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            Text="{Binding NombresApellidos, Mode=TwoWay}"
+                            Placeholder="Nombres y Apellidos" 
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            Text="{Binding NumIdentificacion, Mode=TwoWay}"
+                            Placeholder="Número de Identificación" 
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            Text="{Binding Telefono, Mode=TwoWay}"
+                            Placeholder="Teléfono" 
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        <custom:CustomEntry  
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            Text="{Binding TelefonoCelular, Mode=TwoWay}"
+                            Placeholder="Teléfono Celular" 
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            PlaceholderColor="#5ed5f2"
+                            />
+                        <Label TextColor="White">Fecha Nacimiento</Label>
+                        <customDP:CustomDatePicker
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            Date="{Binding FechaNacimientoSelected, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            Format="yyyy-MM-dd"
+                            />
+                        <customP:CustomPicker
+                            Title="Seleccionar una Ciudad" SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"
                             ItemDisplayBinding="{Binding CiudadStr}" 
-                            ItemsSource="{Binding Ciudades}">
-                    </Picker>
-                    <Picker Title="Seleccionar un Medicamento" 
+                            ItemsSource="{Binding Ciudades}"
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            />
+                        <customP:CustomPicker
+                            Title="Seleccionar un Medicamento" 
                             SelectedItem="{Binding SelectedMedicamento, Mode=TwoWay}"
                             ItemDisplayBinding="{Binding MedicamentoStr}" 
-                            ItemsSource="{Binding Medicamentos}" >
-                    </Picker>
-                    <Picker Title="Seleccionar una Patología" 
+                            ItemsSource="{Binding Medicamentos}"
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            />
+                        <customP:CustomPicker
+                            Title="Seleccionar una Patología"
                             SelectedItem="{Binding SelectedPatologia, Mode=TwoWay}"
                             ItemDisplayBinding="{Binding PatologiaStr}" 
-                            
-                            ItemsSource="{Binding Patologias}" >
-                    </Picker>
-                    <Picker Title="Seleccionar una EPS" 
+                            ItemsSource="{Binding Patologias}"
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            />
+                        <customP:CustomPicker
+                            Title="Seleccionar una EPS" 
                             SelectedItem="{Binding SelectedEps, Mode=TwoWay}"
                             ItemDisplayBinding="{Binding EpsStr}" 
-                            
-                            ItemsSource="{Binding Epss}">
-                    </Picker>
-                    <StackLayout Orientation="Horizontal" Margin="20,0,20,0" HorizontalOptions="Fill">
-                        <Button Command="{Binding TakePhotoCommand}" HorizontalOptions="FillAndExpand" Text="Nueva Fotografía" ></Button>
-                        <Button Command="{Binding PickPhotoCommand}" HorizontalOptions="FillAndExpand" Text="Abrir Galería" ></Button>
-                    </StackLayout>
+                            ItemsSource="{Binding Epss}"
+                            CornerRadius="18"  
+                            IsCurvedCornersEnabled="True"    
+                            BackgroundColor="White"
+                            TextColor="#02a8d0"
+                            />
+                        <StackLayout Orientation="Horizontal" Margin="20,0,20,0" HorizontalOptions="Fill">
+                            <Image Source="nueva_foto.jpg" HorizontalOptions="Center" Margin="0,0,20,0" WidthRequest="135">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TakePhotoCommand}"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Image Source="abrir_galeria.jpg" HorizontalOptions="Center" Margin="20,0,0,0" WidthRequest="100">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PickPhotoCommand}"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
 
-                    <StackLayout Margin="20,0,20,0" HorizontalOptions="Fill">
-                        <Button Text="Diligenciar consentimiento informado" HorizontalOptions="Fill" Command="{Binding ConsentimientoInformadoCommand}" ></Button>
-                    </StackLayout>
-                    <StackLayout Margin="20,0,20,0" HorizontalOptions="Fill">
-                        <Button Text="Siguiente" HorizontalOptions="Fill" Command="{Binding ReportarPacienteCommand}" ></Button>
+                        </StackLayout>
+
+                        <StackLayout Margin="20,10,20,0" HorizontalOptions="Fill">
+                            <Label FontSize="Small" HorizontalOptions="Center" Text="Diligenciar consentimiento informado" FontAttributes="Bold" TextColor="White">
+                                <Label.Effects>
+                                    <effect:UnderlineEffect />
+                                </Label.Effects>
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ConsentimientoInformadoCommand}"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Margin="20,25,20,0" HorizontalOptions="Fill">
+                            <Image Source="siguiente.png" HorizontalOptions="Center" WidthRequest="125">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ReportarPacienteCommand}"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
                     </StackLayout>
                 </StackLayout>
+                
                 <ActivityIndicator      
                         IsRunning="{Binding IsRunning, Mode=TwoWay}"
                         IsVisible="{Binding IsBusy}"
