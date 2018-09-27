@@ -24,6 +24,10 @@ namespace Medicos.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Syncfusion.SfDataGrid.XForms.iOS.SfDataGridRenderer.Init();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("ODczNUAzMTM2MmUzMjJlMzBXZWFHeXpGQ2NpTVp2UGI1L0RlRlVMRlU0L283MkRPS2Vxc1JpR1RtM3RVPQ==");
+            Window = new UIWindow(UIScreen.MainScreen.Bounds);
+            Window.MakeKeyAndVisible();
+
             LoadApplication(new App());
             //new SfPdfDocumentViewRenderer();
             return base.FinishedLaunching(app, options);
