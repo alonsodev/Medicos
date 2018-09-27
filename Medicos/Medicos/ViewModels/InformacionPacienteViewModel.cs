@@ -110,6 +110,7 @@ namespace Medicos.ViewModels
         #region Constructors
         public InformacionPacienteViewModel()
         {
+
             this.IsEnabled = true;
             this.LoadPaciente();
         }

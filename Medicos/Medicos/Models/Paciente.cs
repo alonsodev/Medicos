@@ -81,5 +81,7 @@ namespace Medicos.Models
 
         public string EpsStr { get; set; }
         public string MedicamentoStr { get; set; }
+
+
     }
 }

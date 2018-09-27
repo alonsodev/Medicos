@@ -17,8 +17,14 @@ namespace Medicos.Views
 		public ConsentimientoInformadoFirmaPage ()
 		{
 			InitializeComponent ();
-            
 
+
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.checkExistsSession();
         }
 
         async void btnTerminarOnClick(object sender, EventArgs args)

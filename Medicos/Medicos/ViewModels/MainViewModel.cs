@@ -1,7 +1,9 @@
 ﻿using Medicos.Models;
+using Medicos.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Medicos.ViewModels
 {
@@ -134,14 +136,26 @@ namespace Medicos.ViewModels
             get;
             set;
         }
-        
 
+
+        #endregion
+
+        #region Methods
+        public void checkExistsSession()
+        {
+            if (instance.Token == null || instance.Usuario == null)
+            {
+                instance.Login = new LoginViewModel();
+                Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            }
+        }
         #endregion
 
         #region Constructors
         public MainViewModel()
         {
             instance = this;
+            this.Paciente = null;
             this.Login = new LoginViewModel();
         }
 

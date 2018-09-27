@@ -46,6 +46,7 @@ namespace Medicos.ViewModels
         #region Constructors
         public BeneficiosViewModel()
         {
+
             this.apiService = new ApiService();
             this.IsEnabled = true;
             this.LoadBeneficio();

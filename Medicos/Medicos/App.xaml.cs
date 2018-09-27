@@ -13,6 +13,7 @@ namespace Medicos
         public App()
         {
             InitializeComponent();
+            
             NavigationPage np = new NavigationPage(new LoginPage());
             np.BarBackgroundColor = Color.FromRgb(18, 56, 92);
             MainPage = np;

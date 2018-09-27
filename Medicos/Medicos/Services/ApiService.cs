@@ -135,10 +135,14 @@ namespace Medicos.Services
                     "nombre={0}&apellido={1}&telefono={2}&id_medicamento={3}&tipo_documento={4}&documento={5}&telefono_celular={6}" +
                     "&correo={7}&id_ciudad={8}&id_eps={9}&formula_img={10}&cuidador={11}&tipo_documento_cuidador={12}&documento_cuidador={13}" +
                     "&parentesco={14}&telefono_cuidador={15}&centro_atencion={16}&consentimiento_pdf={17}&usuario={18}&id_canal={19}&fecha_nacimiento={20}&id_patologia={21}",
-                    pPaciente.Nombre, pPaciente.Apellido, pPaciente.Telefono, pPaciente.Id_medicamento, pPaciente.Tipo_documento,
-                    pPaciente.Documento, pPaciente.Telefono_celular, pPaciente.Correo, pPaciente.Id_ciudad, pPaciente.Id_eps, pPaciente.Formula_img,
-                    pPaciente.Cuidador, pPaciente.Tipo_documento_cuidador, pPaciente.Documento_cuidador, pPaciente.Parentesco, pPaciente.Telefono_cuidador,
-                    pPaciente.Centro_atencion, pPaciente.Consentimiento_pdf, pPaciente.Usuario, pPaciente.Id_canal, pPaciente.Fecha_nacimiento, pPaciente.Id_patologia);
+                    (String.IsNullOrEmpty(pPaciente.Nombre) ? "N/A" : pPaciente.Nombre), (String.IsNullOrEmpty(pPaciente.Apellido) ? "N/A" : pPaciente.Apellido),
+                    (String.IsNullOrEmpty(pPaciente.Telefono) ? "N/A" : pPaciente.Telefono), (String.IsNullOrEmpty(pPaciente.Id_medicamento) ? "N/A" : pPaciente.Id_medicamento),
+                    (String.IsNullOrEmpty(pPaciente.Tipo_documento) ? "N/A" : pPaciente.Tipo_documento), (String.IsNullOrEmpty(pPaciente.Documento) ? "N/A" : pPaciente.Documento),
+                    (String.IsNullOrEmpty(pPaciente.Telefono_celular) ? "N/A" : pPaciente.Telefono_celular), (String.IsNullOrEmpty(pPaciente.Correo) ? "N/A" : pPaciente.Correo), pPaciente.Id_ciudad, pPaciente.Id_eps, pPaciente.Formula_img,
+                    (String.IsNullOrEmpty(pPaciente.Cuidador) ? "N/A" : pPaciente.Cuidador), (String.IsNullOrEmpty(pPaciente.Tipo_documento_cuidador) ? "N/A" : pPaciente.Tipo_documento_cuidador),
+                    (String.IsNullOrEmpty(pPaciente.Documento_cuidador) ? "N/A" : pPaciente.Documento_cuidador), (String.IsNullOrEmpty(pPaciente.Parentesco) ? "N/A" : pPaciente.Parentesco),
+                    (String.IsNullOrEmpty(pPaciente.Telefono_cuidador) ? "N/A" : pPaciente.Telefono_cuidador), (String.IsNullOrEmpty(pPaciente.Centro_atencion) ? "N/A" : pPaciente.Centro_atencion), 
+                    pPaciente.Consentimiento_pdf, pPaciente.Usuario, pPaciente.Id_canal, pPaciente.Fecha_nacimiento, pPaciente.Id_patologia);
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", MainViewModel.GetInstance().Token.AccessToken);
                 var response = await client.PostAsync(GlobalSetting.Instance.ReportarPacienteEndpoint,
                     new StringContent(strPost,
@@ -425,6 +429,32 @@ namespace Medicos.Services
                 catch (Exception ex)
                 {
                     return new List<PacienteMes>();
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<PacienteCantidad>> GetCantidadesPacientesConsolidado(string ano)
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(GlobalSetting.Instance.BaseEndpoint);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", MainViewModel.GetInstance().Token.AccessToken);
+                var response = await client.GetAsync(string.Format(GlobalSetting.Instance.CantidadesEndpoint + "/" + ano + "/{1}", "null", "null"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    var result = JsonConvert.DeserializeObject<List<PacienteCantidad>>(
+                    resultJSON);
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    return new List<PacienteCantidad>();
                 }
             }
             catch (Exception ex)

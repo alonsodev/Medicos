@@ -16,14 +16,24 @@
             <StackLayout VerticalOptions="StartAndExpand"  StyleClass="MainSL2" >
                 <Label Margin="0,-50,0,0" FontSize="Medium" TextColor="White" HorizontalOptions="StartAndExpand" Text="Información Consolidada de Pacientes"></Label>
                 <StackLayout Margin="0,0,0,20">
-                    <Image Source="descargar_infor_consol.png" WidthRequest="235" HorizontalOptions="Center">
+                    <Image Source="descargar_infor_consol.png" WidthRequest="235" HorizontalOptions="Center" IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding OpenConsolidadoPdfCommand}"></TapGestureRecognizer>
                         </Image.GestureRecognizers>
                     </Image>
                 </StackLayout>
-
-                <syncfusion:SfDataGrid x:Name="dataGrid" BackgroundColor="Transparent"
+                <ActivityIndicator      
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <ActivityIndicator.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS, Android" Value="100" />
+                        </OnPlatform>
+                    </ActivityIndicator.WidthRequest>
+                </ActivityIndicator>
+                    <syncfusion:SfDataGrid x:Name="dataGrid" BackgroundColor="Transparent"
                 ColumnSizer="Star"
                 AutoGenerateColumns="False"
                                       

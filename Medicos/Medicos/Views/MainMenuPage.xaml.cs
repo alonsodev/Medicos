@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Medicos.Views
 {
+    using Medicos.ViewModels;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
     public partial class MainMenuPage : ContentPage
@@ -16,5 +17,12 @@ namespace Medicos.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.checkExistsSession();
+        }
+    }
 }

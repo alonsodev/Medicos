@@ -48,5 +48,11 @@ namespace Medicos.Views
             */
             //sfcPacientesCS.ItemsSource = bc.PacienteGrafico.Data;
         }
-	}
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.checkExistsSession();
+        }
+    }
 }

@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:Medicos" 
              xmlns:custom="clr-namespace:Medicos.CustomEntry"
              xmlns:customP="clr-namespace:Medicos.CustomPicker"
+             xmlns:customAC="clr-namespace:Medicos.AutoComplete"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Solicitud de Usuario">
     <ContentPage.Content>
@@ -31,7 +32,14 @@
                             TextColor="#02a8d0"
                             PlaceholderColor="#5ed5f2"
                             />
-                    <customP:CustomPicker
+                    <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                                                     Watermark="  Seleccionar una Especialidad"
+                                                     WatermarkColor="#5ed5f2"
+                                                  
+                                                     DataSource="{Binding Especialidades}" 
+                                                     DisplayMemberPath="EspecialidadStr"
+                                               SelectedItem="{Binding SelectedEspecialidad, Mode=TwoWay}"/>
+                    <!--<customP:CustomPicker
                             Title="Seleccionar una Especialidad" SelectedItem="{Binding SelectedEspecialidad, Mode=TwoWay}"
                                 ItemDisplayBinding="{Binding EspecialidadStr}" 
                                 ItemsSource="{Binding Especialidades}"
@@ -39,7 +47,7 @@
                             IsCurvedCornersEnabled="True"    
                             BackgroundColor="White"
                             TextColor="#02a8d0"
-                            />
+                            />!-->
 
                         <custom:CustomEntry  
                                 CornerRadius="18"  
@@ -57,7 +65,7 @@
                                 TextColor="#02a8d0"
                                 PlaceholderColor="#5ed5f2"
                                 />
-                    <customP:CustomPicker
+                    <!--<customP:CustomPicker
                             Title="Seleccionar una Ciudad" SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"
                                 ItemDisplayBinding="{Binding CiudadStr}" 
                                 ItemsSource="{Binding Ciudades}"
@@ -65,8 +73,14 @@
                             IsCurvedCornersEnabled="True"    
                             BackgroundColor="White"
                             TextColor="#02a8d0"
-                            />
-                    
+                            /> !-->
+                    <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                                                     Watermark="  Seleccionar una Ciudad"
+                                                     WatermarkColor="#5ed5f2"
+                                                  
+                                                     DataSource="{Binding Ciudades}" 
+                                                     DisplayMemberPath="CiudadStr"
+                                               SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"/>
                     <custom:CustomEntry  
                             CornerRadius="18"  
                             IsCurvedCornersEnabled="True"    

@@ -8,13 +8,22 @@ using System.Threading.Tasks;
 
 namespace Medicos.Views
 {
-	using Xamarin.Forms;
+    using Medicos.ViewModels;
+    using Syncfusion.SfAutoComplete.XForms;
+    using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
     public partial class ReportarPacientePage : ContentPage
 	{
 		public ReportarPacientePage ()
 		{
 			InitializeComponent ();
-		}
-	}
+
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.checkExistsSession();
+        }
+    }
 }

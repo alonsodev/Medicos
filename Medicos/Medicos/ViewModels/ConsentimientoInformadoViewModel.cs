@@ -91,6 +91,7 @@ namespace Medicos.ViewModels
         #region Constructors
         public ConsentimientoInformadoViewModel()
         {
+
             this.apiService = new ApiService();
             this.loadData();
             this.IsEnabled = true;
@@ -101,9 +102,22 @@ namespace Medicos.ViewModels
         #region Methods
         private async void loadData()
         {
+            var vMainViewModel = MainViewModel.GetInstance();
+
+            Paciente oPaciente = vMainViewModel.Paciente;
+
+            this.Correo = oPaciente.Correo;
+            //oPaciente.Id_ciudad = this.SelectedCiudad != null ? this.SelectedCiudad.Id_ciudad.ToString() : "N/A";
+            this.Cuidador = oPaciente.Cuidador;
+            this.CuidadorDocumento = oPaciente.Documento_cuidador;
+            this.Parentesco = oPaciente.Parentesco;
+            this.CentroAtencion = oPaciente.Centro_atencion;
+            this.CuidadorTelefono = oPaciente.Telefono_cuidador;
+
             //medicamentos = await this.apiService.Medicamentos();
-            List<Ciudad> _ciudades = await this.apiService.Ciudades("null");
-            this.Ciudades = new ObservableCollection<Ciudad>(_ciudades);
+            /*List<Ciudad> _ciudades = await this.apiService.Ciudades("null");
+            this.Ciudades = new ObservableCollection<Ciudad>(_ciudades);*/
+        
         }
         #endregion
 
@@ -130,15 +144,15 @@ namespace Medicos.ViewModels
 
             Paciente oPaciente = vMainViewModel.Paciente;
 
-            oPaciente.Tipo_documento = "N/A";
+            oPaciente.Tipo_documento = "";
             oPaciente.Correo = this.Correo;
             //oPaciente.Id_ciudad = this.SelectedCiudad != null ? this.SelectedCiudad.Id_ciudad.ToString() : "N/A";
             oPaciente.Cuidador = this.Cuidador;
-            oPaciente.Tipo_documento_cuidador = "N/A";
+            oPaciente.Tipo_documento_cuidador = "";
             oPaciente.Documento_cuidador = this.CuidadorDocumento;
             oPaciente.Parentesco = this.Parentesco;
             oPaciente.Centro_atencion = this.CentroAtencion;
-            oPaciente.Consentimiento_pdf = "N/A";
+            oPaciente.Consentimiento_pdf = "";
             oPaciente.Telefono_cuidador = this.CuidadorTelefono;
         }
 

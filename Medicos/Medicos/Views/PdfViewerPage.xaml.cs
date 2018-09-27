@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Medicos.PDF;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,11 @@ namespace Medicos.Views
 		public PdfViewerPage ()
 		{
 			InitializeComponent ();
-		}
-	}
+            pdfViewerControl.DocumentSaveInitiated += (s, e) => {
+                System.IO.Stream st = e.SaveStream;
+                ISave isave = DependencyService.Get<ISave>();
+                isave.Save("Output.pdf", "application/pdf", (MemoryStream)st);
+            };
+        }
+    }
 }

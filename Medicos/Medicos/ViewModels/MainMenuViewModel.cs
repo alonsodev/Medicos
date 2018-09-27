@@ -33,6 +33,8 @@ namespace Medicos.ViewModels
         #region Constructors
         public MainMenuViewModel()
         {
+            
+
             if (MainViewModel.GetInstance().Token.Rol == "Enfermero")
             {
                 isVisible = false;

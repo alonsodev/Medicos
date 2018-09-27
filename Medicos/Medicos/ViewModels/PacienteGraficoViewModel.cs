@@ -59,6 +59,7 @@ namespace Medicos.ViewModels
         #region Constructors
         public PacienteGraficoViewModel()
         {
+
             this.apiService = new ApiService();
 
             //this.IsRemembered = true;

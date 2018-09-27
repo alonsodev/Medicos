@@ -71,6 +71,7 @@ namespace Medicos.ViewModels
         #region Constructors
         public BuscarPacienteViewModel()
         {
+
             this.apiService = new ApiService();
             this.IsEnabled = true;
             this.LoadPacientes();

@@ -16,6 +16,7 @@ namespace Medicos.ViewModels
     using System.Linq;
     using System.Threading.Tasks;
     using System.Collections.ObjectModel;
+    using Syncfusion.SfAutoComplete.XForms;
 
     public class ReportarPacienteViewModel : BaseViewModel
     {
@@ -27,7 +28,7 @@ namespace Medicos.ViewModels
         private bool isRunning;
         private bool isEnabled;
         private ObservableCollection<Ciudad> ciudades;
-        private ObservableCollection<Patologia> patologias;
+        //private ObservableCollection<Patologia> patologias;
         private string nombres;
         private string apellidos;
         private string nombresApellidos;
@@ -35,7 +36,11 @@ namespace Medicos.ViewModels
         private string telefono;
         private string telefonoCelular;
         private string formulaImg;
-        private DateTime fechaNacimiento = DateTime.Now;
+        private DateTime? fechaNacimiento = null;
+        private string ciudadText;
+        private string medicamentoText;
+        private string epsText;
+
         //private int tiposDocumentoSelectedIndex = -1;
         /*private List<string> tiposDocumento = new List<string>
         {
@@ -55,6 +60,44 @@ namespace Medicos.ViewModels
         //public List<string> TiposDocumento => tiposDocumento;
         //public List<string> Medicamentos => medicamentos;
         //public List<string> Epss => epss;
+        public string CiudadText
+        {
+            get { return this.ciudadText; }
+            set
+            {
+                SetValue(ref this.ciudadText, value);
+                if (string.IsNullOrEmpty(value))
+                {
+                    SelectedCiudad = null;
+                }
+            }
+        }
+        
+        public string EpsText
+        {
+            get { return this.epsText; }
+            set
+            {
+                SetValue(ref this.epsText, value);
+                if (string.IsNullOrEmpty(value))
+                {
+                    SelectedEps = null;
+                }
+            }
+        }
+        
+        public string MedicamentoText
+        {
+            get { return this.medicamentoText; }
+            set
+            {
+                SetValue(ref this.medicamentoText, value);
+                if (string.IsNullOrEmpty(value)){
+                    SelectedMedicamento = null;
+                }
+            }
+        }
+        
         public ObservableCollection<Ciudad> Ciudades
         {
             get { return this.ciudades; }
@@ -79,10 +122,10 @@ namespace Medicos.ViewModels
             }
             set {
                 selectedMedicamento = value;
-                if(selectedMedicamento != null)
+                /*if(selectedMedicamento != null)
                 {
                     loadPatologias(selectedMedicamento.Id_medicamento.ToString());
-                }
+                }*/
                 
             }
         }
@@ -93,12 +136,12 @@ namespace Medicos.ViewModels
             set { SetValue(ref this.epss, value); }
         }
 
-        public Patologia SelectedPatologia { get; set; }
+        /*public Patologia SelectedPatologia { get; set; }
         public ObservableCollection<Patologia> Patologias
         {
             get { return this.patologias; }
             set { SetValue(ref this.patologias, value); }
-        }
+        }*/
         public string FormulaImg
         {
             get;
@@ -142,7 +185,7 @@ namespace Medicos.ViewModels
                 }
             }
         }
-        public DateTime FechaNacimientoSelected
+        public DateTime? FechaNacimientoSelected
         {
             get {
                 return this.fechaNacimiento; }
@@ -204,6 +247,7 @@ namespace Medicos.ViewModels
         #region Constructors
         public ReportarPacienteViewModel()
         {
+
             this.apiService = new ApiService();
             this.IsEnabled = true;
             this.loadData();
@@ -211,16 +255,26 @@ namespace Medicos.ViewModels
         #endregion
 
         #region Methods
+        public Func<string, ICollection<string>, ICollection<string>> SortingAlgorithm { get; } =
+            (text, values) => values
+                .Where(x => x.ToLower().StartsWith(text.ToLower()))
+                .OrderBy(x => x)
+                .ToList();
 
-        private async void loadPatologias(string id_medicamento)
+        /*private async void loadPatologias(string id_medicamento)
         {
             List<Patologia> _patologias = await this.apiService.Patologias(id_medicamento);
             this.Patologias = new ObservableCollection<Patologia>(_patologias);
-        }
+        }*/
         private async void loadData()
         {
             var vMainViewModel = MainViewModel.GetInstance();
-            vMainViewModel.Paciente = new Paciente();
+
+            if (vMainViewModel.Paciente == null)
+            {
+                vMainViewModel.Paciente = new Paciente();
+            }
+
             List<Medicamento> _medicamentos = await this.apiService.Medicamentos();
             this.Medicamentos = new ObservableCollection<Medicamento>(_medicamentos);
 
@@ -231,13 +285,33 @@ namespace Medicos.ViewModels
             this.Ciudades = new ObservableCollection<Ciudad>(_ciudades);
 
             //this.NombresApellidos = 
-            this.Nombres = vMainViewModel.Paciente.Nombre;
-            this.Apellidos = vMainViewModel.Paciente.Apellido;
-            this.SelectedEps = _epss.Find(l => l.Id_eps.ToString() == vMainViewModel.Paciente.Id_eps);
-            this.SelectedMedicamento = _medicamentos.Find(l => l.Id_medicamento.ToString() == vMainViewModel.Paciente.Id_medicamento);
-            this.NumIdentificacion = vMainViewModel.Paciente.Documento;
-            this.telefono = vMainViewModel.Paciente.Telefono;
-            this.TelefonoCelular = vMainViewModel.Paciente.Telefono_celular;
+            this.NombresApellidos = vMainViewModel.Paciente.Nombre;
+            //this.Apellidos = vMainViewModel.Paciente.Apellido;
+            if(vMainViewModel.Paciente.Id_ciudad != "N/A")
+            {
+                this.SelectedCiudad = _ciudades.Find(l => l.Id_ciudad.ToString() == vMainViewModel.Paciente.Id_ciudad);
+            }
+            if (vMainViewModel.Paciente.Id_eps != "N/A")
+            {
+                this.SelectedEps = _epss.Find(l => l.Id_eps.ToString() == vMainViewModel.Paciente.Id_eps);
+            }
+            if (vMainViewModel.Paciente.Id_medicamento != "N/A")
+            {
+                this.SelectedMedicamento = _medicamentos.Find(l => l.Id_medicamento.ToString() == vMainViewModel.Paciente.Id_medicamento);
+            }
+
+            if (vMainViewModel.Paciente.Fecha_nacimiento == "N/A" || string.IsNullOrEmpty(vMainViewModel.Paciente.Fecha_nacimiento))
+            {
+                this.FechaNacimientoSelected = null;
+            }
+            else
+            {
+                this.FechaNacimientoSelected = DateTime.ParseExact(vMainViewModel.Paciente.Fecha_nacimiento, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            }
+
+            this.NumIdentificacion = vMainViewModel.Paciente.Documento == "N/A" ? "" : vMainViewModel.Paciente.Documento;
+            this.Telefono = vMainViewModel.Paciente.Telefono == "N/A" ? "" : vMainViewModel.Paciente.Telefono;
+            this.TelefonoCelular = vMainViewModel.Paciente.Telefono_celular == "N/A" ? "" : vMainViewModel.Paciente.Telefono_celular;
         }
         #endregion
 
@@ -276,6 +350,8 @@ namespace Medicos.ViewModels
 
         private async void ReportarPaciente()
         {
+
+
             if (string.IsNullOrEmpty(this.NombresApellidos) || this.NombresApellidos.IndexOf(" ") <= 0)
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -303,7 +379,7 @@ namespace Medicos.ViewModels
                     "Aceptar");
                 return;
             }
-            /*
+            
             if(this.SelectedMedicamento == null)
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -311,7 +387,16 @@ namespace Medicos.ViewModels
                     "Tú debes escoger un medicamento.",
                     "Aceptar");
                 return;
-            }*/
+            }
+
+            if (this.SelectedEps == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Tú debes escoger una EPS.",
+                    "Aceptar");
+                return;
+            }
 
             /*if (this.MedicamentosSelectedIndex == -1)
             {
@@ -411,31 +496,31 @@ namespace Medicos.ViewModels
 
             Paciente oPaciente = vMainViewModel.Paciente;
             oPaciente.Nombre = this.NombresApellidos;
-            oPaciente.Apellido = "N/A";
+            oPaciente.Apellido = "";//"N/A";
             oPaciente.Telefono = this.Telefono;
-            oPaciente.Tipo_documento = "N/A";
+            oPaciente.Tipo_documento = "";//"N/A";
             oPaciente.Documento = this.NumIdentificacion;
             oPaciente.Id_medicamento = this.SelectedMedicamento == null ? "N/A" : this.SelectedMedicamento.Id_medicamento.ToString();//this.Medicamentos[this.MedicamentosSelectedIndex];
             oPaciente.MedicamentoStr = this.SelectedMedicamento == null ? "N/A" : this.SelectedMedicamento.MedicamentoStr;
             oPaciente.Id_eps = this.SelectedEps == null ? "N/A" : this.SelectedEps.Id_eps.ToString(); //this.Epss[this.EpssSelectedIndex];
             oPaciente.EpsStr = this.SelectedEps == null ? "N/A" : SelectedEps.EpsStr;
             oPaciente.Formula_img = (string.IsNullOrEmpty(this.FormulaImg) ? "N/A" : this.FormulaImg);
-            oPaciente.Correo = "N/A";
+            oPaciente.Correo = "";//"N/A";
             oPaciente.Usuario = vMainViewModel.Usuario;
             oPaciente.Id_canal = 100;
-            oPaciente.Telefono_celular = (string.IsNullOrEmpty(this.TelefonoCelular) ? "N/A" : this.TelefonoCelular);
-            oPaciente.Telefono_cuidador = "N/A";
-            oPaciente.Cuidador = "N/A";
+            oPaciente.Telefono_celular = this.TelefonoCelular;//(string.IsNullOrEmpty(this.TelefonoCelular) ? "N/A" : this.TelefonoCelular);
+            oPaciente.Telefono_cuidador = "";//"N/A";
+            oPaciente.Cuidador = "";//"N/A";
             oPaciente.Id_ciudad = this.SelectedCiudad != null ? this.SelectedCiudad.Id_ciudad.ToString() : "N/A";
             oPaciente.CiudadStr = this.SelectedCiudad == null ? "N/A" : SelectedCiudad.CiudadStr;
-            oPaciente.Tipo_documento_cuidador = "N/A";
-            oPaciente.Documento_cuidador = "N/A";
-            oPaciente.Parentesco = "N/A";
-            oPaciente.Centro_atencion = "N/A";
-            oPaciente.Consentimiento_pdf = "N/A";
-            oPaciente.Id_patologia = this.SelectedPatologia != null ? this.SelectedPatologia.id_patologia.ToString() : "N/A" ;
-            oPaciente.PatologiaStr = this.SelectedPatologia != null ? this.SelectedPatologia.PatologiaStr : "N/A";
-            oPaciente.Fecha_nacimiento = this.FechaNacimientoSelected.ToString("yyyy-MM-dd");
+            oPaciente.Tipo_documento_cuidador = "";//"N/A";
+            oPaciente.Documento_cuidador = "";//"N/A";
+            oPaciente.Parentesco = "";//"N/A";
+            oPaciente.Centro_atencion = "";//"N/A";
+            oPaciente.Consentimiento_pdf = "";//"N/A";
+            oPaciente.Id_patologia = "";//"N/A";
+            oPaciente.PatologiaStr = "";//"N/A";
+            oPaciente.Fecha_nacimiento = this.FechaNacimientoSelected.Value.ToString("yyyy-MM-dd");
         }
 
         private async void PickPhoto()

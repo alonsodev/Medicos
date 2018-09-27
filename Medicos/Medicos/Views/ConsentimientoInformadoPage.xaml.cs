@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Medicos.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,14 @@ namespace Medicos.Views
 		public ConsentimientoInformadoPage ()
 		{
 			InitializeComponent ();
-		}
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.checkExistsSession();
+        }
 
-        
+
     }
 }

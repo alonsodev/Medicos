@@ -54,6 +54,7 @@ namespace Medicos.ViewModels
         #region Constructors
         public NotificacionesViewModel()
         {
+
             this.apiService = new ApiService();
             this.IsEnabled = true;
             this.LoadNotificaciones();

@@ -64,6 +64,7 @@ namespace Medicos.ViewModels
         #region Constructors
         public ConsentimientoInformadoFirmaViewModel()
         {
+
             this.apiService = new ApiService();
             this.FirmaPaciente = true;
             this.IsEnabled = true;
@@ -112,7 +113,7 @@ namespace Medicos.ViewModels
             /*MainViewModel.GetInstance().PdfViewer = new PdfViewerViewModel();
             MainViewModel.GetInstance().PdfViewer.PdfDocumentStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Medicos.Assets.consentimiento.pdf");
             await Application.Current.MainPage.Navigation.PushAsync(new PdfViewerPage());*/
-            await Task.Run(() => { Device.OpenUri(new Uri("http://www.pdf995.com/samples/pdf.pdf")); });
+            await Task.Run(() => { Device.OpenUri(new Uri("https://ast1.solutions-app.com/Consentimiento/CONSENTIMIENTO_INFORMADO_VINCULACION_PROGRAMA_FEB_2017.pdf")); });
         }
 
         
@@ -120,9 +121,46 @@ namespace Medicos.ViewModels
         public async void Terminar()
         {
             var vMainViewModel = MainViewModel.GetInstance();
+            Paciente oPaciente = vMainViewModel.Paciente;
+
+            if (string.IsNullOrEmpty(oPaciente.Correo))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Tú debes ingresar un correo del paciente.",
+                    "Aceptar");
+
+                vMainViewModel.ConsentimientoInformado = new ConsentimientoInformadoViewModel();
+
+                await Application.Current.MainPage.Navigation.PushAsync(new ConsentimientoInformadoPage());
+
+                return;
+            }
+
+            var response = await this.apiService.GetPaciente(
+                MainViewModel.GetInstance().Usuario,
+                "0");
+            List<PacienteView> oListPacienteView = (List<PacienteView>)response;
+            List<PacienteView>  oListPacienteViewFound = oListPacienteView.FindAll(p => p.Documento == oPaciente.Documento);
+
+            if(oListPacienteViewFound.Count > 0)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "El paciente ya ha sido reportado, por favor revisar y volver a intentar.",
+                    "Aceptar");
+
+                vMainViewModel.ReportarPaciente = new ReportarPacienteViewModel();
+
+                await Application.Current.MainPage.Navigation.PushAsync(new ReportarPacientePage());
+
+                return;
+            }
+
             Signature = await SignatureFromStream();
             FillPacienteEntity();
 
+        
             var paciente = await this.apiService.ReportarPaciente(vMainViewModel.Paciente);
             Int32 intPacienteId = 0;
             if (paciente.Id.Contains("id:"))
@@ -131,7 +169,7 @@ namespace Medicos.ViewModels
                     "Éxito",
                     "El paciente fue reportado satisfactoriamente.",
                     "Aceptar");
-
+                vMainViewModel.Paciente = null;
                 vMainViewModel.MainMenu = new MainMenuViewModel();
 
                 await Application.Current.MainPage.Navigation.PushAsync(new MainMenuPage());
@@ -142,7 +180,7 @@ namespace Medicos.ViewModels
                 {
                     await Application.Current.MainPage.DisplayAlert(
                    "Error",
-                   paciente.Id,
+                   "Algo estuvo mal, por favor intente después.", //paciente.Id,
                    "Aceptar");
                 }
                 else
@@ -194,29 +232,30 @@ namespace Medicos.ViewModels
                 graphics.DrawString(DateTime.Now.Year.ToString(), font, brush, new PointF(297, 69));
 
                 //line 2
-                graphics.DrawString(oPaciente.CiudadStr, font, brush, new PointF(370, 69));
+                graphics.DrawString(oPaciente.CiudadStr.Replace("N/A", ""), font, brush, new PointF(370, 69));
 
-                graphics.DrawString(oPaciente.Nombre, font, brush, new PointF(112, 114));
+                graphics.DrawString(oPaciente.Nombre.Replace("N/A", ""), font, brush, new PointF(112, 114));
 
                 graphics.DrawString("X", font, brush, new PointF(381, 114));
 
-                graphics.DrawString(oPaciente.Documento, font, brush, new PointF(516, 114));
+                graphics.DrawString(oPaciente.Documento.Replace("N/A", ""), font, brush, new PointF(516, 114));
 
                 //line 3
                 graphics.DrawString(oPaciente.Fecha_nacimiento.Split('-')[2], font, brush, new PointF(112, 133));
                 graphics.DrawString(oPaciente.Fecha_nacimiento.Split('-')[1], font, brush, new PointF(142, 133));
                 graphics.DrawString(oPaciente.Fecha_nacimiento.Split('-')[0], font, brush, new PointF(162, 133));
 
-                graphics.DrawString(oPaciente.Telefono_celular, font, brush, new PointF(222, 133));
+                graphics.DrawString(oPaciente.Telefono_celular.Replace("N/A", ""), font, brush, new PointF(222, 133));
 
-                graphics.DrawString(oPaciente.Telefono, font, brush, new PointF(370, 133));
+                graphics.DrawString(oPaciente.Telefono.Replace("N/A", ""), font, brush, new PointF(370, 133));
 
-                graphics.DrawString(oPaciente.Correo, font, brush, new PointF(477, 133));
+                graphics.DrawString(oPaciente.Correo.Replace("N/A", ""), font, brush, new PointF(477, 133));
 
                 //line4
-                graphics.DrawString(oPaciente.PatologiaStr, font, brush, new PointF(354, 150));
+                //graphics.DrawString(oPaciente.PatologiaStr, font, brush, new PointF(354, 150));
+                graphics.DrawString("", font, brush, new PointF(354, 150));
 
-                graphics.DrawString(oPaciente.EpsStr, font, brush, new PointF(52, 150));
+                graphics.DrawString(oPaciente.EpsStr.Replace("N/A", ""), font, brush, new PointF(52, 150));
 
                 //line 5
                 if (oPaciente.MedicamentoStr.ToLower().Contains("zoladex"))
@@ -253,40 +292,40 @@ namespace Medicos.ViewModels
                 }
 
                 //line 6
-                graphics.DrawString(oPaciente.Cuidador, font, brush, new PointF(110, 210));
+                graphics.DrawString(oPaciente.Cuidador.Replace("N/A", ""), font, brush, new PointF(110, 210));
 
                 if (oPaciente.Cuidador != "" && oPaciente.Cuidador != "N/A")
                 {
                     graphics.DrawString("X", font, brush, new PointF(381, 210));
                 }
 
-                graphics.DrawString(oPaciente.Documento_cuidador, font, brush, new PointF(516, 210));
+                graphics.DrawString(oPaciente.Documento_cuidador.Replace("N/A", ""), font, brush, new PointF(516, 210));
 
                 //line 7
-                graphics.DrawString(oPaciente.Parentesco, font, brush, new PointF(78, 228));
-                graphics.DrawString(oPaciente.Telefono_cuidador, font, brush, new PointF(349, 228));
+                graphics.DrawString(oPaciente.Parentesco.Replace("N/A", ""), font, brush, new PointF(78, 228));
+                graphics.DrawString(oPaciente.Telefono_cuidador.Replace("N/A", ""), font, brush, new PointF(349, 228));
 
                 //line 8
-                graphics.DrawString(vMainViewModel.Token.NombreApellidos, font, brush, new PointF(110, 269));
-                graphics.DrawString(vMainViewModel.Token.UserName, font, brush, new PointF(338, 269));
+                graphics.DrawString(vMainViewModel.Token.NombreApellidos.Replace("N/A", ""), font, brush, new PointF(110, 269));
+                graphics.DrawString(vMainViewModel.Token.UserName.Replace("N/A", ""), font, brush, new PointF(338, 269));
 
                 //line 9
-                graphics.DrawString(vMainViewModel.Token.Especialidad, font, brush, new PointF(82, 288));
-                graphics.DrawString(oPaciente.Centro_atencion, font, brush, new PointF(386, 288));
+                graphics.DrawString(vMainViewModel.Token.Especialidad.Replace("N/A", ""), font, brush, new PointF(82, 288));
+                graphics.DrawString(oPaciente.Centro_atencion.Replace("N/A", ""), font, brush, new PointF(386, 288));
 
                 //line 10
-                graphics.DrawString(vMainViewModel.Token.NombreApellidos, font, brush, new PointF(70, 459));
+                graphics.DrawString(vMainViewModel.Token.NombreApellidos.Replace("N/A", ""), font, brush, new PointF(70, 459));
 
                 //line 11
                 if (FirmaPaciente)
                 {
-                    graphics.DrawString(oPaciente.Documento, font, brush, new PointF(128, 762));
+                    graphics.DrawString(oPaciente.Documento.Replace("N/A", ""), font, brush, new PointF(128, 762));
                 }
 
 
                 if (FirmaFamiliar)
                 {
-                    graphics.DrawString(oPaciente.Documento_cuidador, font, brush, new PointF(400, 762));
+                    graphics.DrawString(oPaciente.Documento_cuidador.Replace("N/A", ""), font, brush, new PointF(400, 762));
                 }
 
                 Stream stream = new MemoryStream(Signature);
@@ -318,7 +357,7 @@ namespace Medicos.ViewModels
             
 
         }
-
+        
         static byte[] ReadToEnd(Stream stream)
         {
             long originalPosition = 0;

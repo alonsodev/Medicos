@@ -2,14 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Medicos.Views.ReportarPacientePage"
+xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
              xmlns:local="clr-namespace:Medicos" 
              xmlns:effect="clr-namespace:Medicos.Effects" 
              xmlns:custom="clr-namespace:Medicos.CustomEntry"
              xmlns:customDP="clr-namespace:Medicos.CustomDatePicker"
+             xmlns:customAC="clr-namespace:Medicos.AutoComplete"
              xmlns:customP="clr-namespace:Medicos.CustomPicker"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Reportar Paciente">
-  
+    <!--xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"!-->
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding ReportarPaciente}">
@@ -60,15 +62,26 @@
                             TextColor="#02a8d0"
                             PlaceholderColor="#5ed5f2"
                             />
-                        <Label TextColor="White">Fecha Nacimiento</Label>
+                        <!--<Label TextColor="White">Fecha Nacimiento</Label>
+                         ="{Binding FechaNacimientoSelected, Mode=TwoWay}" !-->
                         <customDP:CustomDatePicker
                             CornerRadius="18"  
                             IsCurvedCornersEnabled="True"    
-                            Date="{Binding FechaNacimientoSelected, Mode=TwoWay}"
+                            NullableDate="{Binding FechaNacimientoSelected, Mode=TwoWay}"
+                            PlaceHolder="Fecha Nacimiento" 
                             BackgroundColor="White"
+                            PlaceHolderColor="#5ed5f2"
                             TextColor="#02a8d0"
                             Format="yyyy-MM-dd"
                             />
+                        <!--<xfx:XfxComboBox
+                             Placeholder="Enter your email address"
+                             ActivePlaceholderColor="BlueViolet"
+                             SelectedItem="{Binding SelectedItem}"
+                         
+                             Text="{Binding CiudadText}"
+                             ItemsSource="{Binding Ciudades}"
+                             SortingAlgorithm="{Binding SortingAlgorithm}" />
                         <customP:CustomPicker
                             Title="Seleccionar una Ciudad" SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"
                             ItemDisplayBinding="{Binding CiudadStr}" 
@@ -77,8 +90,23 @@
                             IsCurvedCornersEnabled="True"    
                             BackgroundColor="White"
                             TextColor="#02a8d0"
-                            />
-                        <customP:CustomPicker
+                            />!-->
+                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                                                     Watermark="  Seleccionar una Ciudad"
+                                                     WatermarkColor="#5ed5f2"
+                                                     DataSource="{Binding Ciudades}" 
+                                               Text="{Binding CiudadText, Mode=TwoWay}"
+                                                     DisplayMemberPath="CiudadStr"
+                                                     x:Name="acCiudad"
+                                               SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"/>
+                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                                                     Watermark="  Seleccionar una Medicamento"
+                                                     WatermarkColor="#5ed5f2"
+                                                     DataSource="{Binding Medicamentos}" 
+                                                     DisplayMemberPath="MedicamentoStr"
+                                                     Text="{Binding MedicamentoText, Mode=TwoWay}"
+                                                     SelectedItem="{Binding SelectedMedicamento, Mode=TwoWay}"/>
+                        <!--<customP:CustomPicker
                             Title="Seleccionar un Medicamento" 
                             SelectedItem="{Binding SelectedMedicamento, Mode=TwoWay}"
                             ItemDisplayBinding="{Binding MedicamentoStr}" 
@@ -87,9 +115,10 @@
                             IsCurvedCornersEnabled="True"    
                             BackgroundColor="White"
                             TextColor="#02a8d0"
-                            />
-                        <customP:CustomPicker
-                            Title="Seleccionar una Patología"
+                            />!-->
+                        
+                        <!--<<customP:CustomPicker
+                            Title="Seleccionar una Patología"0
                             SelectedItem="{Binding SelectedPatologia, Mode=TwoWay}"
                             ItemDisplayBinding="{Binding PatologiaStr}" 
                             ItemsSource="{Binding Patologias}"
@@ -97,8 +126,15 @@
                             IsCurvedCornersEnabled="True"    
                             BackgroundColor="White"
                             TextColor="#02a8d0"
-                            />
-                        <customP:CustomPicker
+                            />!-->
+                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                                                     Watermark="  Seleccionar una EPS"
+                                                     WatermarkColor="#5ed5f2"
+                                                  Text="{Binding EpsText, Mode=TwoWay}"
+                                                     DataSource="{Binding Epss}" 
+                                                     DisplayMemberPath="EpsStr"
+                                                     SelectedItem="{Binding SelectedEps, Mode=TwoWay}"/>
+                        <!--<customP:CustomPicker
                             Title="Seleccionar una EPS" 
                             SelectedItem="{Binding SelectedEps, Mode=TwoWay}"
                             ItemDisplayBinding="{Binding EpsStr}" 
@@ -107,7 +143,7 @@
                             IsCurvedCornersEnabled="True"    
                             BackgroundColor="White"
                             TextColor="#02a8d0"
-                            />
+                            />!-->
                         <StackLayout Orientation="Horizontal" Margin="20,0,20,0" HorizontalOptions="Fill">
                             <Image Source="nueva_foto.jpg" HorizontalOptions="Center" Margin="0,0,20,0" WidthRequest="135">
                                 <Image.GestureRecognizers>

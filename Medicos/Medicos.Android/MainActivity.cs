@@ -19,9 +19,10 @@ namespace Medicos.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-
+            //Xamarin.Forms.DependencyService.Register<SaveAndroid>();
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("ODczNUAzMTM2MmUzMjJlMzBXZWFHeXpGQ2NpTVp2UGI1L0RlRlVMRlU0L283MkRPS2Vxc1JpR1RtM3RVPQ==");
+            LoadApplication(new Medicos.App());
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)

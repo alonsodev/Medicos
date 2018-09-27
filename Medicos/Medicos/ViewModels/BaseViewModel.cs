@@ -4,13 +4,21 @@ using System.Text;
 
 namespace Medicos.ViewModels
 {
+    using Medicos.Views;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
+    using Xamarin.Forms;
 
     public class BaseViewModel : INotifyPropertyChanged
     {
+    
+        public BaseViewModel()
+        {
+            
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ObservableCollection<string> _tiposDocumento;
@@ -40,5 +48,7 @@ namespace Medicos.ViewModels
             backingField = value;
             OnPropertyChanged(propertyName);
         }
+
+        
     }
 }

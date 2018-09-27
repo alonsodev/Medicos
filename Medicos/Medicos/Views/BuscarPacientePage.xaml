@@ -4,6 +4,8 @@
              x:Class="Medicos.Views.BuscarPacientePage"
              xmlns:local="clr-namespace:Medicos" 
              xmlns:custom="clr-namespace:Medicos.CustomSearchBar"
+             xmlns:customP="clr-namespace:Medicos.CustomPicker"
+              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Caminando Juntos">
     <ContentPage.Content>
@@ -25,6 +27,30 @@
                     PlaceholderColor="#5ed5f2"
                     SearchCommand="{Binding SearchCommand}">
                 </custom:CustomSearchBar>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*"/>
+                        <ColumnDefinition Width=".5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+                    <customP:CustomPicker
+                    Title="Año" 
+                    CornerRadius="18"   Grid.Column="0"
+                    IsCurvedCornersEnabled="True"    
+                    BackgroundColor="White"
+                    TextColor="#02a8d0" 
+                    />
+                    <customP:CustomPicker
+                    Title="Mes" Grid.Column="1" 
+                    CornerRadius="18"  
+                    IsCurvedCornersEnabled="True"    
+                    BackgroundColor="White"
+                    TextColor="#02a8d0"
+                    />
+                </Grid>
                 <!---<Button Text="Buscar" Command="{Binding BuscarCommand}" HorizontalOptions="Start"></Button>
                 <Button Text="Información Paciente" Command="{Binding InformacionPacienteCommand}" BorderRadius="23" HorizontalOptions="Start"></Button>!-->
                 <Label Text="Resultados" TextColor="White" FontAttributes="Bold" FontSize="14"></Label>
@@ -40,8 +66,8 @@
                     <ListView.Header>
                         <Grid BackgroundColor="#12385c">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width=".6*"/>
-                                <ColumnDefinition Width="1.2*"/>
+                                <ColumnDefinition Width=".7*"/>
+                                <ColumnDefinition Width="1.1*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width=".35*"/>
                             </Grid.ColumnDefinitions>
@@ -56,8 +82,8 @@
                             <ViewCell>
                                 <Grid x:Name="Item">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width=".6*"/>
-                                        <ColumnDefinition Width="1.2*"/>
+                                        <ColumnDefinition Width=".7*"/>
+                                        <ColumnDefinition Width="1.1*"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width=".35*"/>
                                     </Grid.ColumnDefinitions>

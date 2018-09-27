@@ -14,8 +14,15 @@ namespace Medicos.ViewModels
         private bool isRunning;
         #endregion
 
-        #region Properties
-        public bool IsRunning
+        #region Constructors
+        public VerPacienteMenuViewModel()
+        {
+
+        }
+        #endregion
+
+    #region Properties
+    public bool IsRunning
         {
             get { return this.isRunning; }
             set { SetValue(ref this.isRunning, value); }
