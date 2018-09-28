@@ -28,6 +28,7 @@ namespace Medicos.iOS
 
             Syncfusion.SfDataGrid.XForms.iOS.SfDataGridRenderer.Init();
             Syncfusion.SfChart.XForms.iOS.Renderers.SfChartRenderer.Init();
+            new Syncfusion.SfAutoComplete.XForms.iOS.SfAutoCompleteRenderer();
 
             LoadApplication(new App());
             //new SfPdfDocumentViewRenderer();
