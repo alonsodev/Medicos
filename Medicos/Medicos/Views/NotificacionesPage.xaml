@@ -17,6 +17,7 @@
                     IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
                     ItemsSource="{Binding Notificaciones}"
                     SeparatorVisibility="None"
+                    BackgroundColor="Transparent"
                     RefreshCommand="{Binding RefreshCommand}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
