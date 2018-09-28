@@ -16,7 +16,7 @@
                 </StackLayout>
                 <StackLayout VerticalOptions="StartAndExpand"  StyleClass="MainSL2" >
                     <Label FontSize="Small" Margin="0,-50,0,0" TextColor="White" HorizontalOptions="StartAndExpand" Text="Mis Pacientes Ingresados"></Label>
-                    <chart:SfChart x:Name="sfcPacientes" HeightRequest="250" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <chart:SfChart x:Name="sfcPacientes" HeightRequest="250" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
                         <chart:SfChart.Legend>
                             <chart:ChartLegend />
                         </chart:SfChart.Legend>
@@ -57,6 +57,7 @@
                         IsPullToRefreshEnabled="true"
                         IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
                         ItemsSource="{Binding Pacientes}"
+                        BackgroundColor="Transparent"
                         SeparatorVisibility="None"
                         RefreshCommand="{Binding RefreshCommand}">
                             <ListView.Header>
