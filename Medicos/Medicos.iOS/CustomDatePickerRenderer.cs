@@ -30,6 +30,7 @@ namespace Medicos.iOS
                 Control.Layer.BorderColor = view.BorderColor.ToCGColor();
                 Control.Layer.BorderWidth = view.BorderWidth;
                 Control.ClipsToBounds = true;
+                Control.Layer.MasksToBounds = true;
             }
         }
     }

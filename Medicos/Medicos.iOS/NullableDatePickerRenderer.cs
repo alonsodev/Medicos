@@ -30,6 +30,7 @@ namespace Medicos.iOS
                 Control.Layer.BorderColor = UIColor.LightGray.CGColor;
                 Control.Layer.BorderWidth = 1;
                 Control.Layer.CornerRadius = Convert.ToSingle(view.CornerRadius);
+                Control.Layer.MasksToBounds = true;
                 if (Device.Idiom == TargetIdiom.Tablet)
                 {
                     this.Control.Font = UIFont.SystemFontOfSize(25);
