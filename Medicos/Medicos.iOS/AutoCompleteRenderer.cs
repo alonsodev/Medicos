@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using CoreGraphics;
 using Medicos.AutoComplete;
 using Medicos.iOS;
@@ -24,15 +23,15 @@ namespace Medicos.iOS
             if (Control != null)
             {
                 var view = (SfAutoComplete)Element;
-                /*
-                Control.LeftView = new UIView(new CGRect(0f, 0f, 9f, 20f));
+                
+                /*Control.l .LeftView = new UIView(new CGRect(0f, 0f, 9f, 20f));
                 Control.LeftViewMode = UITextFieldViewMode.Always;
                 Control.KeyboardAppearance = UIKeyboardAppearance.Dark;
-                Control.ReturnKeyType = UIReturnKeyType.Done;
-                Control.Layer.CornerRadius = Convert.ToSingle(view.CornerRadius);
+                Control.ReturnKeyType = UIReturnKeyType.Done;*/
+                Control.Layer.CornerRadius = System.Convert.ToSingle(view.DropDownCornerRadius);
                 Control.Layer.BorderColor = view.BorderColor.ToCGColor();
-                Control.Layer.BorderWidth = view.BorderWidth;
-                Control.ClipsToBounds = true;*/
+                //Control.Layer.BorderWidth = view.BorderWidth;
+                Control.ClipsToBounds = true;
 
                 /*GradientDrawable gd = new GradientDrawable();
                 gd.SetShape(ShapeType.Rectangle);
