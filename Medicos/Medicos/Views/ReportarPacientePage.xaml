@@ -91,7 +91,7 @@ xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Sync
                             BackgroundColor="White"
                             TextColor="#02a8d0"
                             />!-->
-                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="White"
                                                      Watermark="  Seleccionar una Ciudad"
                                                      WatermarkColor="#5ed5f2"
                                                      DataSource="{Binding Ciudades}" 
@@ -99,7 +99,7 @@ xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Sync
                                                      DisplayMemberPath="CiudadStr"
                                                      x:Name="acCiudad"
                                                SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"/>
-                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="White"
                                                      Watermark="  Seleccionar una Medicamento"
                                                      WatermarkColor="#5ed5f2"
                                                      DataSource="{Binding Medicamentos}" 
@@ -127,7 +127,7 @@ xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Sync
                             BackgroundColor="White"
                             TextColor="#02a8d0"
                             />!-->
-                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="White"
                                                      Watermark="  Seleccionar una EPS"
                                                      WatermarkColor="#5ed5f2"
                                                   Text="{Binding EpsText, Mode=TwoWay}"

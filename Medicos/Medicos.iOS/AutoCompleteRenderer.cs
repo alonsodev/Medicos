@@ -30,6 +30,7 @@ namespace Medicos.iOS
                 Control.ReturnKeyType = UIReturnKeyType.Done;*/
                 Control.Layer.CornerRadius = System.Convert.ToSingle(view.DropDownCornerRadius);
                 Control.Layer.BorderColor = view.BorderColor.ToCGColor();
+
                 //Control.Layer.BorderWidth = view.BorderWidth;
                 Control.ClipsToBounds = true;
 
