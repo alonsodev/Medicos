@@ -15,12 +15,12 @@
             </StackLayout>
             <StackLayout VerticalOptions="StartAndExpand" StyleClass="MainSL2">
                 <StackLayout Margin="5,0,5,0">
-                    <TableView Intent="Form" HeightRequest="50"
+                    <TableView Intent="Form" HeightRequest="50" BackgroundColor="Transparent"
                        Margin="10, 0">
                         <TableRoot>
                             <TableSection>
                                 <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
                                         <Label TextColor="White" Text="Firma del Paciente"></Label>
                                         <Switch x:Name="swtFirmaPaciente" IsToggled="{Binding FirmaPaciente, Mode=TwoWay}" Toggled="swtFirmaPacienteToogled"/>
                                     </StackLayout>
@@ -28,12 +28,12 @@
                             </TableSection>
                         </TableRoot>
                     </TableView>
-                    <TableView Intent="Form" HeightRequest="50"
+                    <TableView Intent="Form" HeightRequest="50" BackgroundColor="Transparent"
                        Margin="10, 0">
                         <TableRoot>
                             <TableSection>
                                 <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
                                         <Label TextColor="White" Text="Firma del Representante Legal/Familiar"></Label>
                                         <Switch x:Name="swtFirmaFamiliar" IsToggled="{Binding FirmaFamiliar, Mode=TwoWay}" Toggled="swtFirmaFamiliarToogled" />
                                     </StackLayout>
