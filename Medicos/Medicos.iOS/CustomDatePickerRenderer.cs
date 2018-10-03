@@ -21,7 +21,7 @@ namespace Medicos.iOS
             if (e.NewElement != null)
             {
                 var view = (Medicos.CustomDatePicker.CustomDatePicker)Element;
-
+                /*
                 Control.LeftView = new UIView(new CGRect(0f, 0f, 9f, 20f));
                 Control.LeftViewMode = UITextFieldViewMode.Always;
                 Control.KeyboardAppearance = UIKeyboardAppearance.Dark;
@@ -30,7 +30,7 @@ namespace Medicos.iOS
                 Control.Layer.BorderColor = view.BorderColor.ToCGColor();
                 Control.Layer.BorderWidth = view.BorderWidth;
                 Control.ClipsToBounds = true;
-                Control.Layer.MasksToBounds = true;
+                Control.Layer.MasksToBounds = true;*/
             }
         }
     }
