@@ -37,9 +37,12 @@ namespace Medicos.Droid
                 gd.SetCornerRadius(DpToPixels(this.Context,
                             18.0f));
                 gd.SetStroke(4, Android.Graphics.Color.Gray);
-                view.BackgroundColor = Xamarin.Forms.Color.Transparent;
+                
+                //Control.SetBackgroundColor(Android.Graphics.Color.White);
                 Control.GetAutoEditText().SetBackgroundColor(Android.Graphics.Color.Transparent);
                 Control.SetBackgroundDrawable(gd);
+                //Control.SetBackgroundColor(Android.Graphics.Color.White);
+                //view.BackgroundColor = Xamarin.Forms.Color.Transparent;
             }
         }
 

@@ -11,6 +11,7 @@ xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Sync
              xmlns:customP="clr-namespace:Medicos.CustomPicker"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Reportar Paciente">
+
     <!--xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"!-->
     <ContentPage.Content>
         <ScrollView>
@@ -91,21 +92,41 @@ xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Sync
                             BackgroundColor="White"
                             TextColor="#02a8d0"
                             />!-->
-                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="White"
+                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" 
+                    
                                                      Watermark="  Seleccionar una Ciudad"
                                                      WatermarkColor="#5ed5f2"
                                                      DataSource="{Binding Ciudades}" 
                                                Text="{Binding CiudadText, Mode=TwoWay}"
                                                      DisplayMemberPath="CiudadStr"
                                                      x:Name="acCiudad"
-                                               SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"/>
-                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="White"
+                                               SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}">
+                            <customAC:AutoComplete.BackgroundColor>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS" Value="White" />
+                                        <On Platform="Android" Value="Transparent" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </customAC:AutoComplete.BackgroundColor>
+                            
+                        </customAC:AutoComplete>
+                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0"
                                                      Watermark="  Seleccionar una Medicamento"
                                                      WatermarkColor="#5ed5f2"
                                                      DataSource="{Binding Medicamentos}" 
                                                      DisplayMemberPath="MedicamentoStr"
                                                      Text="{Binding MedicamentoText, Mode=TwoWay}"
-                                                     SelectedItem="{Binding SelectedMedicamento, Mode=TwoWay}"/>
+                                                     SelectedItem="{Binding SelectedMedicamento, Mode=TwoWay}">
+                            <customAC:AutoComplete.BackgroundColor>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS" Value="White" />
+                                        <On Platform="Android" Value="Transparent" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </customAC:AutoComplete.BackgroundColor>
+                        </customAC:AutoComplete>
                         <!--<customP:CustomPicker
                             Title="Seleccionar un Medicamento" 
                             SelectedItem="{Binding SelectedMedicamento, Mode=TwoWay}"
@@ -127,13 +148,22 @@ xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Sync
                             BackgroundColor="White"
                             TextColor="#02a8d0"
                             />!-->
-                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="White"
+                        <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" 
                                                      Watermark="  Seleccionar una EPS"
                                                      WatermarkColor="#5ed5f2"
                                                   Text="{Binding EpsText, Mode=TwoWay}"
                                                      DataSource="{Binding Epss}" 
                                                      DisplayMemberPath="EpsStr"
-                                                     SelectedItem="{Binding SelectedEps, Mode=TwoWay}"/>
+                                                     SelectedItem="{Binding SelectedEps, Mode=TwoWay}">
+                            <customAC:AutoComplete.BackgroundColor>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS" Value="White" />
+                                        <On Platform="Android" Value="Transparent" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </customAC:AutoComplete.BackgroundColor>
+                        </customAC:AutoComplete>
                         <!--<customP:CustomPicker
                             Title="Seleccionar una EPS" 
                             SelectedItem="{Binding SelectedEps, Mode=TwoWay}"
