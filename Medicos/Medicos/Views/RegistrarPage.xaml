@@ -32,13 +32,23 @@
                             TextColor="#02a8d0"
                             PlaceholderColor="#5ed5f2"
                             />
-                    <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                    <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0"
                                                      Watermark="  Seleccionar una Especialidad"
                                                      WatermarkColor="#5ed5f2"
                                                   
                                                      DataSource="{Binding Especialidades}" 
                                                      DisplayMemberPath="EspecialidadStr"
-                                               SelectedItem="{Binding SelectedEspecialidad, Mode=TwoWay}"/>
+                                               SelectedItem="{Binding SelectedEspecialidad, Mode=TwoWay}">
+                        <customAC:AutoComplete.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="White" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </customAC:AutoComplete.BackgroundColor>
+
+                    </customAC:AutoComplete>
                     <!--<customP:CustomPicker
                             Title="Seleccionar una Especialidad" SelectedItem="{Binding SelectedEspecialidad, Mode=TwoWay}"
                                 ItemDisplayBinding="{Binding EspecialidadStr}" 
@@ -74,13 +84,22 @@
                             BackgroundColor="White"
                             TextColor="#02a8d0"
                             /> !-->
-                    <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" BackgroundColor="Transparent"
+                    <customAC:AutoComplete HeightRequest="50" DropDownCornerRadius="18" TextColor="#02a8d0" 
                                                      Watermark="  Seleccionar una Ciudad"
                                                      WatermarkColor="#5ed5f2"
                                                   
                                                      DataSource="{Binding Ciudades}" 
                                                      DisplayMemberPath="CiudadStr"
-                                               SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}"/>
+                                               SelectedItem="{Binding SelectedCiudad, Mode=TwoWay}">
+                        <customAC:AutoComplete.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="White" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </customAC:AutoComplete.BackgroundColor>
+                    </customAC:AutoComplete>
                     <custom:CustomEntry  
                             CornerRadius="18"  
                             IsCurvedCornersEnabled="True"    

@@ -42,12 +42,18 @@
                     IsCurvedCornersEnabled="True"    
                     BackgroundColor="White"
                     TextColor="#02a8d0" 
+                    SelectedItem="{Binding SelectedAno, Mode=TwoWay}"
+                        ItemDisplayBinding="{Binding AnoStr}" 
+                    ItemsSource="{Binding Anos}"
                     />
                     <customP:CustomPicker
                     Title="Mes" Grid.Column="1" 
                     CornerRadius="18"  
                     IsCurvedCornersEnabled="True"    
                     BackgroundColor="White"
+                    SelectedItem="{Binding SelectedMes, Mode=TwoWay}"
+                        ItemDisplayBinding="{Binding MesStr}" 
+                    ItemsSource="{Binding Meses}"
                     TextColor="#02a8d0"
                     />
                 </Grid>
