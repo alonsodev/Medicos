@@ -8,6 +8,10 @@ namespace Medicos.ViewModels
     using System.Windows.Input;
     using Xamarin.Forms;
     using Views;
+    using Plugin.Permissions;
+    using Plugin.Permissions.Abstractions;
+    using System.Threading.Tasks;
+
     public class MainMenuViewModel : BaseViewModel
     {
         #region Attributes
@@ -54,6 +58,8 @@ namespace Medicos.ViewModels
                 return new RelayCommand(ReportarPaciente);
             }
         }
+
+        
 
         public ICommand VerPacienteCommand
         {

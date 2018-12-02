@@ -66,8 +66,8 @@ namespace Medicos.ViewModels
             this.IsEnabled = true;
 
             /*this.Usuario = "gerencia@raycomsoluciones.com";
-            this.Password = "Adm1n15tr4d0r*";
-            this.Usuario = "endocrino.otmaro@outlook.com";
+            this.Password = "Adm1n15tr4d0r*";*/
+            /*this.Usuario = "endocrino.otmaro@outlook.com";
             this.Password = "Fernando*2018";*/
         }
         #endregion

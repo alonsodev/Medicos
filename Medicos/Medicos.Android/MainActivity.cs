@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Plugin.Permissions;
+using Plugin.CurrentActivity;
 
 namespace Medicos.Droid
 {
@@ -22,6 +23,7 @@ namespace Medicos.Droid
             //Xamarin.Forms.DependencyService.Register<SaveAndroid>();
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("ODczNUAzMTM2MmUzMjJlMzBXZWFHeXpGQ2NpTVp2UGI1L0RlRlVMRlU0L283MkRPS2Vxc1JpR1RtM3RVPQ==");
+            CrossCurrentActivity.Current.Init(this, bundle);
             LoadApplication(new Medicos.App());
         }
 
