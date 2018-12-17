@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Foundation;
+using Medicos.iOS;
 using Medicos.PDF;
 using QuickLook;
 using UIKit;
-
+[assembly: Xamarin.Forms.Dependency(typeof(SaveIOS))]
 namespace Medicos.iOS
 {
     public class SaveIOS : ISave
