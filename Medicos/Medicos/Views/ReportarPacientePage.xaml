@@ -176,12 +176,12 @@ xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Sync
                             TextColor="#02a8d0"
                             />!-->
                         <StackLayout Orientation="Horizontal" Margin="20,0,20,0" HorizontalOptions="Fill">
-                            <Image Source="nueva_foto.jpg" HorizontalOptions="Center" Margin="0,0,20,0" WidthRequest="135">
+                            <Image Source="nueva_foto.png" HorizontalOptions="Center" Margin="0,0,20,0" WidthRequest="135">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding TakePhotoCommand}"></TapGestureRecognizer>
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Image Source="abrir_galeria.jpg" HorizontalOptions="Center" Margin="20,0,0,0" WidthRequest="100">
+                            <Image Source="abrir_galeria.png" HorizontalOptions="Center" Margin="20,0,0,0" WidthRequest="100">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding PickPhotoCommand}"></TapGestureRecognizer>
                                 </Image.GestureRecognizers>

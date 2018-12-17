@@ -25,12 +25,24 @@
 	<key>CFBundleDisplayName</key>
 	<string>Medicos</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.Medicos</string>
+	<string>com.raycomsoluciones.Medicos</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.6</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>Medicos</string>
+	<key>XSAppIconAssets</key>
+	<string>Media.xcassets/AppIcon.appiconset</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Media.xcassets/LaunchImage.launchimage</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Aplicación dirigida a profesionales de la salud. Para acceder deberá solicitar su usuario y contraseña en el link de registro</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Caminando Juntos requiere acceder a tu Camara</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Caminando Juntos requiere acceder a tu Galeria</string>
+	<key>Custom Property</key>
+	<string></string>
 </dict>
 </plist>
