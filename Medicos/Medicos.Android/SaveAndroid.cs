@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -70,16 +71,19 @@ namespace Medicos.Droid
 
             {
 
-                Android.Net.Uri path = Android.Net.Uri.FromFile(file);
+                ///Android.Net.Uri path = Android.Net.Uri.FromFile(file);
+
+                Android.Net.Uri path = Android.Support.V4.Content.FileProvider.GetUriForFile(Forms.Context, "com.companyname.Medicos.fileprovider", file);
+
 
                 string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
 
                 string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
 
                 Intent intent = new Intent(Intent.ActionView);
-
+                intent.SetFlags(ActivityFlags.GrantReadUriPermission);
                 intent.SetDataAndType(path, mimeType);
-                
+
                 Forms.Context.StartActivity(Intent.CreateChooser(intent, "Escoger App"));
 
             }

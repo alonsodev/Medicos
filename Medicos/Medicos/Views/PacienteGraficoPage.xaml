@@ -51,6 +51,7 @@
                     </chart:SfChart>
                     <Label FontSize="Small" HorizontalOptions="StartAndExpand" TextColor="White" Text="Últimos Pacientes"></Label>
                     <StackLayout HeightRequest="150">
+                        <ScrollView HeightRequest="150">
                         <ListView
                         x:Name="PacienteList"
                         HasUnevenRows="true" 
@@ -99,6 +100,7 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
+                        </ScrollView>
                     </StackLayout>
                 </StackLayout>
                 <Image Source="buscar_paciente.png" WidthRequest="175" IsVisible="{Binding IsVisible, Mode=TwoWay}" HorizontalOptions="Center" Margin="0,0,0,20">

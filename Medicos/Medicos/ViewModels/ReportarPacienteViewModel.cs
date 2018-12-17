@@ -425,6 +425,15 @@ namespace Medicos.ViewModels
                 return;
             }
 
+            if (this.FechaNacimientoSelected == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Tú debes ingresar una fecha de nacimiento.",
+                    "Aceptar");
+                return;
+            }
+
             this.IsRunning = true;
             this.IsEnabled = false;
 
@@ -647,7 +656,7 @@ namespace Medicos.ViewModels
 
         private async void ConsentimientoInformado()
         {
-            if (string.IsNullOrEmpty(this.NombresApellidos))
+            if (string.IsNullOrEmpty(this.NombresApellidos) || this.NombresApellidos.IndexOf(" ") <= 0)
             {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
@@ -665,6 +674,25 @@ namespace Medicos.ViewModels
                 return;
             }
 
+            if (this.SelectedMedicamento == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Tú debes escoger un medicamento.",
+                    "Aceptar");
+                return;
+            }
+
+            if (this.SelectedEps == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Tú debes escoger una EPS.",
+                    "Aceptar");
+                return;
+            }
+
+
             if (string.IsNullOrEmpty(this.NumIdentificacion))
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -673,6 +701,16 @@ namespace Medicos.ViewModels
                     "Aceptar");
                 return;
             }
+
+            if (this.FechaNacimientoSelected == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Tú debes ingresar una fecha de nacimiento.",
+                    "Aceptar");
+                return;
+            }
+
 
             this.IsRunning = true;
             this.IsEnabled = false;
