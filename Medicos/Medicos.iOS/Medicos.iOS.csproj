@@ -239,10 +239,18 @@
     <ImageAsset Include="Media.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\icon120.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\icon152.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\icon167.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\icon1024.png" />
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
