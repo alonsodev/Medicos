@@ -53,27 +53,6 @@ namespace Medicos.Views
 
             }
 
-            try
-            {
-
-                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.MediaLibrary);
-                if (status != PermissionStatus.Granted)
-                {
-                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.MediaLibrary))
-                    {
-                        await Application.Current.MainPage.DisplayAlert("Librería de medios requerida", "Acceso a la Librería de Medios es requerida", "OK");
-                    }
-
-                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.MediaLibrary);
-                    //Best practice to always check that the key exists
-                    if (results.ContainsKey(Permission.MediaLibrary))
-                        status = results[Permission.MediaLibrary];
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
 
             
 
