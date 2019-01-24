@@ -599,6 +599,7 @@ namespace Medicos.ViewModels
 
         private async void TakePhoto()
         {
+            
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
                 await Application.Current.MainPage.DisplayAlert("No hay cámara.", ":( No hay cámara disponible.", "Aceptar");
