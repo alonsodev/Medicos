@@ -33,6 +33,53 @@ namespace Medicos.Views
         {
             try
             {
+
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Calendar);
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Calendar))
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Calendario requerido", "Acceso al Calendario es requerido", "OK");
+                    }
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Calendar);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Calendar))
+                        status = results[Permission.Calendar];
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            try
+            {
+
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.MediaLibrary);
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.MediaLibrary))
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Librería de medios requerida", "Acceso a la Librería de Medios es requerida", "OK");
+                    }
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.MediaLibrary);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.MediaLibrary))
+                        status = results[Permission.MediaLibrary];
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            
+
+            try
+            {
+                
                 var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
                 if (status != PermissionStatus.Granted)
                 {
@@ -44,7 +91,7 @@ namespace Medicos.Views
                     var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Camera);
                     //Best practice to always check that the key exists
                     if (results.ContainsKey(Permission.Camera))
-                        status = results[Permission.Location];
+                        status = results[Permission.Camera];
                 }
 
                 /*if (status == PermissionStatus.Granted)

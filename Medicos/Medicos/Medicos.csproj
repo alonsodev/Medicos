@@ -19,6 +19,7 @@
   <ItemGroup>
     <PackageReference Include="MvvmLightLibs" Version="5.4.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
     <PackageReference Include="Syncfusion.Xamarin.Compression" Version="16.1.0.37" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="16.1.0.37" />
     <PackageReference Include="Syncfusion.Xamarin.Pdf" Version="16.1.0.37" />
