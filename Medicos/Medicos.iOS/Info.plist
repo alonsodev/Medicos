@@ -27,7 +27,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.raycomsoluciones.Medicos</string>
 	<key>CFBundleVersion</key>
-	<string>1.6</string>
+	<string>1.9</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -39,12 +39,8 @@
 	<key>NSCalendarsUsageDescription</key>
 	<string>Aplicación dirigida a profesionales de la salud. Para acceder deberá solicitar su usuario y contraseña en el link de registro</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Caminando Juntos requiere acceder a tu Camara</string>
+	<string>El acceso a la cámara  permite a la aplicación utilizar tu teléfono para hacer fotos de ordenes medicas y registro fotográfico de pacientes.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Caminando Juntos requiere acceder a tu Galeria</string>
-	<key>Custom Property</key>
-	<string></string>
-	<key>Custom Property1</key>
-	<string></string>
+	<string>El acceso a la libreria de fotos  permite a la aplicación utilizar tu teléfono para elegir fotos de ordenes medicas y registro fotográfico de pacientes</string>
 </dict>
 </plist>
