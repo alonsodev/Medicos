@@ -27,7 +27,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.raycomsoluciones.Medicos</string>
 	<key>CFBundleVersion</key>
-	<string>1.9</string>
+	<string>1.12</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -42,5 +42,7 @@
 	<string>El acceso a la cámara  permite a la aplicación utilizar tu teléfono para hacer fotos de ordenes medicas y registro fotográfico de pacientes.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>El acceso a la libreria de fotos  permite a la aplicación utilizar tu teléfono para elegir fotos de ordenes medicas y registro fotográfico de pacientes</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>El acceso a la libreria de fotos  permite a la aplicación utilizar tu teléfono para elegir y agregar fotos de ordenes medicas y registro fotográfico de pacientes</string>
 </dict>
 </plist>
